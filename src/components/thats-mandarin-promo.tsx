@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const externalUrl = "https://www.thatsmandarin.com/learn-chinese-online/";
+const hskUrl = "https://www.thatsmandarin.com/hsk-preparation-course/";
 
 export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "compact" }) {
   if (variant === "compact") {
@@ -14,13 +15,22 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
             Jump into teacher-led classes via NihaoCafe, That’s Mandarin’s online school platform. Native teachers,
             immersive sessions, and flexible scheduling when you need extra speaking reps.
           </p>
-          <Link
-            href={externalUrl}
-            target="_blank"
-            className="inline-flex items-center rounded-full bg-white/90 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-500 transition hover:bg-white"
-          >
-            Book a trial →
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href={externalUrl}
+              target="_blank"
+              className="inline-flex items-center rounded-full bg-white/90 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-500 transition hover:bg-white"
+            >
+              Book a live class →
+            </Link>
+            <Link
+              href={hskUrl}
+              target="_blank"
+              className="inline-flex items-center rounded-full border border-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-rose-500"
+            >
+              HSK prep course →
+            </Link>
+          </div>
         </div>
       </section>
     );
@@ -34,11 +44,13 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
           <h2 className="text-3xl font-semibold">Study live with That’s Mandarin</h2>
           <p className="text-base text-white/90">
             We recommend That’s Mandarin when you want real-time speaking practice. Their NihaoCafe platform pairs you with
-            vetted native teachers (only 5% make the cut) and keeps everything immersive, even for beginners.
+            vetted native teachers (only 5% make the cut) and keeps everything immersive, even for beginners. Need exam help?
+            Their HSK Preparation Course has mock tests and coaching built in.
           </p>
           <ul className="space-y-2 text-sm text-white/90">
             <li>• Certified TCSL/TCSOL instructors with years of experience</li>
             <li>• Interactive platform + recordings so you can review after each class</li>
+            <li>• Dedicated HSK Preparation Course with mock tests and coaching</li>
             <li>• Flexible schedules for students abroad or traveling in China</li>
           </ul>
           <div className="flex flex-wrap gap-3">
@@ -48,6 +60,13 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
               className="rounded-full bg-white/95 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-rose-500 transition hover:bg-white"
             >
               Explore That’s Mandarin
+            </Link>
+            <Link
+              href={hskUrl}
+              target="_blank"
+              className="rounded-full border border-white/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-rose-500"
+            >
+              HSK prep course
             </Link>
             <span className="rounded-full bg-white/20 px-4 py-2 text-xs uppercase tracking-[0.4em] text-white/80">
               NihaoCafe access included
