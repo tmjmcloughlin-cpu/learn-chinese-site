@@ -42,50 +42,43 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#120c3b] via-[#151c4f] to-[#1c1f33] px-4 py-10 text-slate-50">
       <main className="mx-auto flex max-w-6xl flex-col gap-10">
-        <section className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-[#ffe066] via-[#ff9f68] to-[#ff6f91] p-10 text-white shadow-2xl">
-          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/20 blur-3xl" aria-hidden />
-          <div className="absolute right-0 top-10 h-40 w-40 rounded-[35%] bg-white/20 blur-3xl" aria-hidden />
-          <div className="relative space-y-6">
-            <div className="flex flex-wrap items-center gap-4">
-            <div className="rounded-2xl bg-[#ffe066] px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-[#7a3a00] shadow-lg">
-              LC
-            </div>
-            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Daily Chinese drop · coral → mango palette</p>
-          </div>
-            <h1 className="text-4xl font-semibold leading-tight">
-              Drops-inspired stories. Hover any character and the pinyin + part of speech appears instantly.
-            </h1>
-            <div className="max-w-3xl space-y-3 text-lg text-white/90">
-              <p>
-                Pick a level, pick a context, and hover every character for instant pinyin + parts of speech. Stretch vocabulary
-                shows up with a dashed outline so you know exactly what to screenshot or jot down.
+        <section className="rounded-4xl bg-gradient-to-br from-[#1b0c3a] via-[#2c1f62] to-[#45218a] p-10 text-white shadow-2xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr]">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.4em] text-white/80">
+                <span>LC</span>
+                <span>Daily HSK feed</span>
+              </div>
+              <h1 className="text-4xl font-semibold leading-tight">Hover-ready Chinese lessons, every morning.</h1>
+              <p className="text-lg text-white/90">
+                New HSK 1–3 readings land at 06:00 London. Hover any character to reveal the pinyin and part of speech, save the
+                highlighted vocab, and keep moving.
               </p>
-              <p>
-                Each article lands at 06:00 London. Fonts stay bold, colors stay coral-to-mango, and the flow mirrors the “tap to
-                learn” rhythm from Drops—except now it’s made for reading drills.
-              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href={`/lessons/${latestLesson.slug}`}
+                  className="rounded-full bg-white/95 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500 transition hover:bg-white"
+                >
+                  Start today’s lesson
+                </Link>
+                <Link
+                  href="/lessons"
+                  className="rounded-full border border-white/70 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white hover:border-white"
+                >
+                  Browse the feed
+                </Link>
+              </div>
+              <div className="grid gap-4 text-xs uppercase tracking-[0.3em] text-white/70 sm:grid-cols-3">
+                {heroFacts.map((fact) => (
+                  <div key={fact.label} className="rounded-3xl bg-white/10 px-4 py-3 text-center font-semibold">
+                    <p className="text-white">{fact.label}</p>
+                    <p className="text-[0.7rem] text-white/70">{fact.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href={`/lessons/${latestLesson.slug}`}
-                className="rounded-full bg-white/95 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffe066] transition hover:bg-white"
-              >
-                Start today’s lesson
-              </Link>
-              <Link
-                href="#levels"
-                className="rounded-full border border-white/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white hover:border-white"
-              >
-                Pick my level
-              </Link>
-            </div>
-            <div className="grid gap-4 text-xs uppercase tracking-[0.3em] text-white/70 sm:grid-cols-3">
-              {heroFacts.map((fact) => (
-                <div key={fact.label} className="rounded-3xl bg-white/15 px-4 py-3 text-center font-semibold">
-                  <p className="text-white">{fact.label}</p>
-                  <p className="text-[0.7rem] text-white/70">{fact.text}</p>
-                </div>
-              ))}
+            <div className="relative h-72 w-full overflow-hidden rounded-3xl border border-white/20">
+              <Image src="/images/tm-online.jpg" alt="That’s Mandarin live class" fill className="object-cover" priority />
             </div>
           </div>
         </section>
