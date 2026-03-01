@@ -57,7 +57,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href={`/lessons/${latestLesson.slug}`}
-                  className="rounded-full bg-white/95 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500 transition hover:bg-white"
+                  className="rounded-full bg-white/95 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#5d50c6] transition hover:bg-white"
                 >
                   Start today’s lesson
                 </Link>
