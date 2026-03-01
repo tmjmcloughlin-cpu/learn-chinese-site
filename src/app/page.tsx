@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { lessons, latestLesson } from "@/data/lessons";
+import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 
 const levelTracks = [
   {
@@ -44,10 +45,12 @@ export default function Home() {
             <h1 className="text-4xl font-semibold leading-tight">
               Drops-inspired gradients, HSK-locked stories. Tap characters, see pinyin instantly.
             </h1>
-            <p className="max-w-3xl text-lg text-white/90">
-              Students just pick level + subject and dive in. 90% of the vocab stays inside target HSK bands; dashed
-              outlines flag the stretch words for notebook time.
-            </p>
+            <div className="max-w-3xl text-lg text-white/90">
+              <p>
+                Welcome back—every morning at 06:00 we drop a fresh HSK-level story so you can sip your tea, hover each
+                character, and feel the grammar clicks without digging through textbooks.
+              </p>
+            </div>
             <div className="flex flex-wrap gap-4">
               <Link
                 href={`/lessons/${latestLesson.slug}`}
@@ -179,6 +182,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <ThatsMandarinPromo variant="full" />
 
         <section className="rounded-3xl bg-white p-8 shadow-lg shadow-rose-100">
           <div className="space-y-3">

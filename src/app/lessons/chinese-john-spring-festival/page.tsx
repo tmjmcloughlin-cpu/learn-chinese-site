@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LessonReader } from "@/components/lesson-reader";
+import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 import { chineseJohnSpringFestival } from "@/data/lessons/chinese-john-spring-festival";
 
 const legend = [
@@ -83,6 +84,8 @@ export default function LessonPage() {
             </article>
           </div>
         </section>
+
+        <ThatsMandarinPromo variant="compact" />
       </div>
     </div>
   );
