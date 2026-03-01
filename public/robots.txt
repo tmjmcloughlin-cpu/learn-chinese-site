@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://learn-chinese-site.vercel.app/sitemap.xml

@@ -14,10 +14,33 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
+const siteUrl = "https://learn-chinese-site.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Learn Chinese · Daily HSK Drops",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Learn Chinese Daily Reader",
+    template: "%s · Learn Chinese Daily",
+  },
   description:
-    "HSK 1-3 gradient-style hover reading lessons with color-coded grammar, stretch vocab flags, and daily drops.",
+    "Daily HSK 1-3 hover-ready Mandarin readings with instant pinyin, visitor-friendly prompts, and live class partners.",
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "Learn Chinese Daily Reader",
+    description:
+      "Daily Mandarin hover-reading feed with pinyin reveals, vocab highlights, and live class partners.",
+    siteName: "Learn Chinese Daily",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Learn Chinese Daily Reader",
+    description:
+      "Daily Mandarin hover-reading feed with pinyin reveals, vocab highlights, and live class partners.",
+  },
 };
 
 export default function RootLayout({

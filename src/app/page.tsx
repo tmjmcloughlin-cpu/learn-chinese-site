@@ -71,7 +71,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative h-72 w-full overflow-hidden rounded-3xl border border-white/20">
-              <Image src="/images/tm-online.jpg" alt="That’s Mandarin live class" fill className="object-cover" priority />
+              <Image src="/images/tm-hero.png" alt="That’s Mandarin live class" fill className="object-cover" priority />
             </div>
           </div>
         </section>
