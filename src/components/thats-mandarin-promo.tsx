@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const externalUrl = "https://www.thatsmandarin.com/learn-chinese-online/";
-const hskUrl = "https://www.thatsmandarin.com/hsk-preparation-course/";
+const externalUrl = "https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons";
+const hskUrl = "https://www.thatsmandarin.com/hsk-preparation-course/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons";
 
 export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "compact" }) {
   if (variant === "compact") {

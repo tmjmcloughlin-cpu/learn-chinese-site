@@ -45,10 +45,14 @@ export default function Home() {
             <h1 className="text-4xl font-semibold leading-tight">
               Drops-inspired gradients, HSK-locked stories. Tap characters, see pinyin instantly.
             </h1>
-            <div className="max-w-3xl text-lg text-white/90">
+            <div className="max-w-3xl space-y-3 text-lg text-white/90">
               <p>
-                Welcome back—every morning at 06:00 we drop a fresh HSK-level story so you can sip your tea, hover each
-                character, and feel the grammar clicks without digging through textbooks.
+                Pick a level, pick a context, and hover every character for instant pinyin + parts of speech. Stretch vocabulary
+                shows up with a dashed outline so you know exactly what to screenshot or jot down.
+              </p>
+              <p>
+                Each article lands at 06:00 London. Fonts stay bold, colors stay coral-to-mango, and the flow mirrors the “tap to
+                learn” rhythm from Drops—except now it’s made for reading drills.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
