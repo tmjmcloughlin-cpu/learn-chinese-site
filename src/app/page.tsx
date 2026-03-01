@@ -1,150 +1,169 @@
-"use client";
+import Link from "next/link";
+import { chineseJohnSpringFestival } from "@/data/lessons/chinese-john-spring-festival";
 
-import { useState } from "react";
-
-type Token = {
-  hanzi: string;
-  pinyin: string;
-  english: string;
-};
-
-type Paragraph = Token[];
-
-const springFestivalLesson: Paragraph[] = [
-  [
-    { hanzi: "二零二六年", pinyin: "èr líng èr liù nián", english: "the year 2026" },
-    { hanzi: "二月十七日", pinyin: "èr yuè shí qī rì", english: "February 17" },
-    { hanzi: "是", pinyin: "shì", english: "is" },
-    { hanzi: "春节", pinyin: "Chūn Jié", english: "Spring Festival" },
-    { hanzi: "。", pinyin: "。", english: "" },
-    { hanzi: "这", pinyin: "zhè", english: "this" },
-    { hanzi: "是", pinyin: "shì", english: "is" },
-    { hanzi: "新年的第一天", pinyin: "xīn nián de dì yī tiān", english: "the first day of the New Year" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "也是", pinyin: "yě shì", english: "also" },
-    { hanzi: "中国最大的节日", pinyin: "Zhōngguó zuì dà de jié rì", english: "China's biggest holiday" },
-    { hanzi: "。", pinyin: "。", english: "" },
-  ],
-  [
-    { hanzi: "在这一天", pinyin: "zài zhè yī tiān", english: "on this day" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "天气虽冷", pinyin: "tiān qì suī lěng", english: "the weather is cold" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "大家都很高兴", pinyin: "dà jiā dōu hěn gāo xìng", english: "everyone is happy" },
-    { hanzi: "。", pinyin: "。", english: "" },
-    { hanzi: "我们会买很多东西", pinyin: "wǒ men huì mǎi hěn duō dōng xi", english: "we buy lots of things" },
-    { hanzi: "：", pinyin: "：", english: "" },
-    { hanzi: "有鱼", pinyin: "yǒu yú", english: "there is fish" },
-    { hanzi: "、", pinyin: "、", english: "" },
-    { hanzi: "有肉", pinyin: "yǒu ròu", english: "meat" },
-    { hanzi: "、", pinyin: "、", english: "" },
-    { hanzi: "有水果", pinyin: "yǒu shuǐ guǒ", english: "fruit" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "还有新衣服", pinyin: "hái yǒu xīn yī fu", english: "and new clothes" },
-    { hanzi: "。", pinyin: "。", english: "" },
-  ],
-  [
-    { hanzi: "家人们会在一起吃饭", pinyin: "jiā rén men huì zài yī qǐ chī fàn", english: "families eat together" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "聊天", pinyin: "liáo tiān", english: "chat" },
-    { hanzi: "、", pinyin: "、", english: "" },
-    { hanzi: "喝茶", pinyin: "hē chá", english: "drink tea" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "看电视", pinyin: "kàn diàn shì", english: "watch TV" },
-    { hanzi: "。", pinyin: "。", english: "" },
-    { hanzi: "大人会给孩子们红包", pinyin: "dà rén huì gěi hái zi men hóng bāo", english: "adults give children red envelopes" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "里面有钱", pinyin: "lǐ miàn yǒu qián", english: "with money inside" },
-    { hanzi: "。", pinyin: "。", english: "" },
-    { hanzi: "我们会穿红色新衣服", pinyin: "wǒ men huì chuān hóng sè xīn yī fu", english: "we wear new red clothes" },
-    { hanzi: "，", pinyin: "，", english: "" },
-    { hanzi: "非常漂亮", pinyin: "fēi cháng piào liang", english: "very beautiful" },
-    { hanzi: "。", pinyin: "。", english: "" },
-  ],
+const hskTracks = [
+  {
+    level: 1,
+    title: "HSK 1 · Survival flow",
+    focus: "Daily greetings, numbers, food, and transport micro-dialogues.",
+    cadence: "Short 120-character lessons with picture cues.",
+  },
+  {
+    level: 2,
+    title: "HSK 2 · Stories in motion",
+    focus: "Work, travel, and culture vignettes with 会/要/想 patterns.",
+    cadence: "Paragraph-length narratives + ERAP prompts.",
+  },
+  {
+    level: 3,
+    title: "HSK 3 · Applied life",
+    focus: "Office, health, and social planning scenarios with light grammar notes.",
+    cadence: "Multi-section articles + audio drops.",
+  },
 ];
 
 export default function Home() {
-  const [activeTokenKey, setActiveTokenKey] = useState<string | null>(null);
-
-  const handleTokenClick = (key: string) => {
-    setActiveTokenKey((current) => (current === key ? null : key));
-  };
+  const latestLesson = chineseJohnSpringFestival;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-amber-50 to-white px-4 py-10 text-slate-900">
-      <main className="mx-auto flex max-w-5xl flex-col gap-10 rounded-3xl bg-white/90 p-8 shadow-xl ring-1 ring-black/5 backdrop-blur">
-        <header className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.3em] text-rose-500">Hover-reading demo</p>
-          <h1 className="text-3xl font-semibold text-slate-900">
-            Spring Festival bilingual reader
-          </h1>
-          <p className="text-base text-slate-600">
-            Hover (or tap) characters to reveal pinyin + English glosses. This mirrors the Mandarin Bean
-            experience using nothing more than semantic HTML, Tailwind utility classes, and a simple data map.
-          </p>
-        </header>
-
-        <section className="space-y-6">
-          {springFestivalLesson.map((paragraph, paragraphIndex) => (
-            <p key={paragraphIndex} className="text-2xl leading-[2.5rem] text-slate-900">
-              {paragraph.map((token, tokenIndex) => {
-                const tokenKey = `${paragraphIndex}-${tokenIndex}`;
-                const isActive = activeTokenKey === tokenKey;
-
-                if (!token.english) {
-                  return (
-                    <span key={tokenKey} className="text-slate-800">
-                      {token.hanzi}
-                    </span>
-                  );
-                }
-
-                return (
-                  <button
-                    key={tokenKey}
-                    type="button"
-                    tabIndex={0}
-                    onClick={() => handleTokenClick(tokenKey)}
-                    onMouseEnter={() => setActiveTokenKey(tokenKey)}
-                    onFocus={() => setActiveTokenKey(tokenKey)}
-                    onMouseLeave={() => setActiveTokenKey(null)}
-                    onBlur={() => setActiveTokenKey(null)}
-                    className="group relative mx-0.5 inline-flex cursor-help items-center rounded-md px-0.5 text-left font-medium text-slate-900 transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400"
-                    aria-pressed={isActive}
-                  >
-                    {token.hanzi}
-                    <span
-                      className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 hidden -translate-x-1/2 flex-col items-center gap-1 rounded-xl border border-black/5 bg-white/95 px-3 py-2 text-sm font-normal text-slate-800 shadow-lg shadow-rose-200/60 group-hover:flex group-focus-visible:flex"
-                      data-active={isActive}
-                      style={{ display: isActive ? "flex" : undefined }}
-                    >
-                      <span className="text-xs uppercase tracking-widest text-rose-500">{token.pinyin}</span>
-                      <span className="text-base font-medium text-slate-900">{token.english}</span>
-                    </span>
-                  </button>
-                );
-              })}
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-amber-50/40 to-white px-4 py-12">
+      <main className="mx-auto flex max-w-6xl flex-col gap-10">
+        <section className="rounded-4xl relative overflow-hidden bg-slate-900 p-10 text-white shadow-2xl">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(244,114,182,0.25),_transparent_50%)]" aria-hidden />
+          <div className="relative space-y-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-rose-300">Daily Chinese drop</p>
+            <h1 className="text-4xl font-semibold leading-tight">
+              Learn Chinese through color-coded stories and ERAP drills.
+            </h1>
+            <p className="max-w-2xl text-lg text-slate-200">
+              Fresh HSK-aligned lessons every morning. Hover or tap to reveal pinyin, grammar cues, and
+              non-HSK highlights so you know exactly where to focus.
             </p>
-          ))}
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href={`/lessons/${latestLesson.slug}`}
+                className="rounded-full bg-rose-400/90 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-900 transition hover:bg-rose-300"
+              >
+                Start today’s lesson
+              </Link>
+              <Link
+                href="#blog"
+                className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-white"
+              >
+                Browse ERAP feed
+              </Link>
+            </div>
+            <p className="text-xs text-slate-400">
+              New lesson posts at 06:00 London · Archive auto-builds on GitHub · Vercel deploy in seconds
+            </p>
+          </div>
         </section>
 
-        <section className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-600">
-          <h2 className="text-base font-semibold text-slate-900">How to extend this</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5">
-            <li>
-              Swap the inline data for a JSON/SQLite glossary generated from CC-CEDICT or JMdict.
-            </li>
-            <li>
-              Tokenize lesson text at build time and wrap each token with the attributes used above.
-            </li>
-            <li>
-              Upgrade tooltips with libraries like Tippy.js for smart positioning, and add tap-to-pin logic for
-              mobile if you need persistent cards.
-            </li>
-            <li>
-              Layer audio buttons (native <code>&lt;audio&gt;</code> or Web Speech API) for instant pronunciation.
-            </li>
-          </ul>
+        <section className="grid gap-6 lg:grid-cols-[2fr_1fr]">
+          <article className="rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-sm backdrop-blur">
+            <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-slate-500">
+              <span>Today’s lesson · HSK {latestLesson.hskLevel}</span>
+              <span>{new Date(latestLesson.date).toLocaleDateString("en-GB", { dateStyle: "medium" })}</span>
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">{latestLesson.title}</h2>
+            <p className="mt-3 text-base text-slate-600">{latestLesson.summary}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {latestLesson.topicTags.map((tag) => (
+                <span key={tag} className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <ul className="mt-6 grid gap-3 text-sm text-slate-600">
+              {latestLesson.focusPoints.map((point) => (
+                <li key={point} className="flex items-start gap-2">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-rose-400" aria-hidden />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href={`/lessons/${latestLesson.slug}`}
+                className="rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white"
+              >
+                Read lesson
+              </Link>
+              <button
+                type="button"
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-600"
+              >
+                Download vocab CSV (coming soon)
+              </button>
+            </div>
+          </article>
+          <aside className="rounded-3xl border border-dashed border-rose-200 bg-rose-50/70 p-6 text-sm text-rose-900">
+            <p className="text-xs uppercase tracking-[0.35em] text-rose-400">Release cadence</p>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <span className="font-semibold">06:00</span> · Push HSK lesson + glossary diff
+              </li>
+              <li>
+                <span className="font-semibold">12:00</span> · ERAP blog synthesis by level
+              </li>
+              <li>
+                <span className="font-semibold">18:00</span> · Flashcard drill + audio drop
+              </li>
+            </ul>
+            <p className="mt-4 text-xs text-rose-600">
+              90% of each lesson stays within target HSK vocabulary. Dashed outlines mark stretch words.
+            </p>
+          </aside>
+        </section>
+
+        <section className="rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-sm">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Tracks</p>
+              <h2 className="text-2xl font-semibold text-slate-900">HSK-focused study lanes</h2>
+              <p className="text-sm text-slate-600">
+                Pick your lane and get one new story every morning. We color-code parts of speech and flag
+                out-of-level words so you can skim or deep-dive.
+              </p>
+            </div>
+            <Link href="#signup" className="self-start rounded-full border border-slate-900 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em]">
+              Get notified
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {hskTracks.map((track) => (
+              <article key={track.level} className="rounded-2xl border border-slate-100 bg-slate-900 text-slate-50 p-5">
+                <p className="text-xs uppercase tracking-[0.4em] text-rose-300">Level {track.level}</p>
+                <h3 className="mt-3 text-xl font-semibold">{track.title}</h3>
+                <p className="mt-2 text-sm text-slate-300">{track.focus}</p>
+                <p className="mt-3 text-xs text-amber-200">{track.cadence}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="blog" className="rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-sm">
+          <div className="flex flex-col gap-3">
+            <p className="text-xs uppercase tracking-[0.4em] text-slate-500">ERAP feed</p>
+            <h2 className="text-2xl font-semibold text-slate-900">Explain · Relate · Apply · Produce</h2>
+            <p className="text-sm text-slate-600">
+              Each afternoon we spin the morning lesson into multi-level prompts. Filter by HSK level to stay in
+              range, or read them all to stretch.
+            </p>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {["Explain", "Apply", "Produce"].map((phase) => (
+              <article key={phase} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                <p className="text-xs uppercase tracking-[0.3em] text-rose-400">HSK 2 focus</p>
+                <h3 className="mt-2 text-lg font-semibold text-slate-900">{phase} prompt</h3>
+                <p className="text-sm text-slate-600">
+                  Placeholder entry. Once the CMS is wired, this surfaces the latest ERAP blog grouped by level
+                  and topic (work / life / travel).
+                </p>
+                <button className="mt-3 text-sm font-semibold text-rose-500">Read sample →</button>
+              </article>
+            ))}
+          </div>
         </section>
       </main>
     </div>

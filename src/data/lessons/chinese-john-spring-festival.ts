@@ -1,0 +1,138 @@
+export type PartOfSpeech =
+  | "noun"
+  | "verb"
+  | "adjective"
+  | "adverb"
+  | "particle"
+  | "expression"
+  | "number"
+  | "grammar"
+  | "noun-phrase";
+
+export type Token = {
+  hanzi: string;
+  pinyin: string;
+  english: string;
+  pos: PartOfSpeech;
+  isHsk: boolean;
+};
+
+export type Lesson = {
+  slug: string;
+  title: string;
+  summary: string;
+  hskLevel: 1 | 2 | 3;
+  category: string;
+  topicTags: string[];
+  date: string; // ISO string
+  heroImageAlt: string;
+  focusPoints: string[];
+  paragraphs: Token[][];
+};
+
+export const chineseJohnSpringFestival: Lesson = {
+  slug: "chinese-john-spring-festival",
+  title: "Chinese John celebrates Spring Festival",
+  summary:
+    "American exchange student John visits his colleague Li Na in Beijing and experiences his first Spring Festival dinner, red envelopes, and temple fair traditions.",
+  hskLevel: 2,
+  category: "Culture",
+  topicTags: ["holiday", "family", "travel"],
+  date: "2026-03-01",
+  heroImageAlt: "John holding red envelopes with friends during Spring Festival",
+  focusPoints: [
+    "Use of 会, 要, 想 for future plans",
+    "Measure words for gifts and dishes",
+    "Common HSK 2 nouns for travel and celebrations",
+  ],
+  paragraphs: [
+    [
+      { hanzi: "约翰", pinyin: "Yuēhàn", english: "John", pos: "noun", isHsk: false },
+      { hanzi: "是", pinyin: "shì", english: "is", pos: "verb", isHsk: true },
+      { hanzi: "一个", pinyin: "yí gè", english: "one (measure)", pos: "number", isHsk: true },
+      { hanzi: "美国", pinyin: "Měiguó", english: "America", pos: "noun", isHsk: false },
+      { hanzi: "学生", pinyin: "xuéshēng", english: "student", pos: "noun", isHsk: true },
+      { hanzi: "，", pinyin: "，", english: "", pos: "particle", isHsk: true },
+      { hanzi: "第一次", pinyin: "dì yī cì", english: "first time", pos: "expression", isHsk: false },
+      { hanzi: "来到", pinyin: "lái dào", english: "come to", pos: "verb", isHsk: true },
+      { hanzi: "北京", pinyin: "Běijīng", english: "Beijing", pos: "noun", isHsk: false },
+      { hanzi: "过", pinyin: "guò", english: "spend (time)", pos: "verb", isHsk: true },
+      { hanzi: "春节", pinyin: "Chūn Jié", english: "Spring Festival", pos: "noun", isHsk: false },
+      { hanzi: "。", pinyin: "。", english: "", pos: "particle", isHsk: true },
+    ],
+    [
+      { hanzi: "他", pinyin: "tā", english: "he", pos: "noun", isHsk: true },
+      { hanzi: "和", pinyin: "hé", english: "and", pos: "particle", isHsk: true },
+      { hanzi: "朋友", pinyin: "péngyǒu", english: "friend", pos: "noun", isHsk: true },
+      { hanzi: "李娜", pinyin: "Lǐ Nà", english: "Li Na", pos: "noun", isHsk: false },
+      { hanzi: "一起", pinyin: "yìqǐ", english: "together", pos: "adverb", isHsk: true },
+      { hanzi: "坐", pinyin: "zuò", english: "sit/take", pos: "verb", isHsk: true },
+      { hanzi: "地铁", pinyin: "dìtiě", english: "subway", pos: "noun", isHsk: false },
+      { hanzi: "去", pinyin: "qù", english: "go", pos: "verb", isHsk: true },
+      { hanzi: "她", pinyin: "tā", english: "her", pos: "noun", isHsk: true },
+      { hanzi: "家", pinyin: "jiā", english: "home", pos: "noun", isHsk: true },
+      { hanzi: "吃", pinyin: "chī", english: "eat", pos: "verb", isHsk: true },
+      { hanzi: "年夜饭", pinyin: "nián yè fàn", english: "New Year’s Eve dinner", pos: "noun", isHsk: false },
+      { hanzi: "。", pinyin: "。", english: "", pos: "particle", isHsk: true },
+    ],
+    [
+      { hanzi: "桌上", pinyin: "zhuō shàng", english: "on the table", pos: "expression", isHsk: false },
+      { hanzi: "有", pinyin: "yǒu", english: "have", pos: "verb", isHsk: true },
+      { hanzi: "很多", pinyin: "hěn duō", english: "many", pos: "adjective", isHsk: true },
+      { hanzi: "饺子", pinyin: "jiǎozi", english: "dumplings", pos: "noun", isHsk: false },
+      { hanzi: "和", pinyin: "hé", english: "and", pos: "particle", isHsk: true },
+      { hanzi: "鱼", pinyin: "yú", english: "fish", pos: "noun", isHsk: true },
+      { hanzi: "，", pinyin: "，", english: "", pos: "particle", isHsk: true },
+      { hanzi: "李娜", pinyin: "Lǐ Nà", english: "Li Na", pos: "noun", isHsk: false },
+      { hanzi: "告诉", pinyin: "gàosu", english: "tell", pos: "verb", isHsk: true },
+      { hanzi: "他", pinyin: "tā", english: "him", pos: "noun", isHsk: true },
+      { hanzi: "鱼", pinyin: "yú", english: "fish", pos: "noun", isHsk: true },
+      { hanzi: "代表", pinyin: "dàibiǎo", english: "represent", pos: "verb", isHsk: false },
+      { hanzi: "年年有余", pinyin: "nián nián yǒu yú", english: "surplus every year", pos: "expression", isHsk: false },
+      { hanzi: "。", pinyin: "。", english: "", pos: "particle", isHsk: true },
+    ],
+    [
+      { hanzi: "饭后", pinyin: "fàn hòu", english: "after dinner", pos: "expression", isHsk: false },
+      { hanzi: "大家", pinyin: "dàjiā", english: "everyone", pos: "noun", isHsk: true },
+      { hanzi: "给", pinyin: "gěi", english: "give", pos: "verb", isHsk: true },
+      { hanzi: "约翰", pinyin: "Yuēhàn", english: "John", pos: "noun", isHsk: false },
+      { hanzi: "一个", pinyin: "yí gè", english: "one", pos: "number", isHsk: true },
+      { hanzi: "红包", pinyin: "hóngbāo", english: "red envelope", pos: "noun", isHsk: false },
+      { hanzi: "，", pinyin: "，", english: "", pos: "particle", isHsk: true },
+      { hanzi: "他", pinyin: "tā", english: "he", pos: "noun", isHsk: true },
+      { hanzi: "觉得", pinyin: "juéde", english: "feel", pos: "verb", isHsk: true },
+      { hanzi: "非常", pinyin: "fēicháng", english: "very", pos: "adverb", isHsk: true },
+      { hanzi: "温暖", pinyin: "wēnnuǎn", english: "warm", pos: "adjective", isHsk: false },
+      { hanzi: "。", pinyin: "。", english: "", pos: "particle", isHsk: true },
+    ],
+    [
+      { hanzi: "第二天", pinyin: "dì èr tiān", english: "next day", pos: "expression", isHsk: false },
+      { hanzi: "他们", pinyin: "tāmen", english: "they", pos: "noun", isHsk: true },
+      { hanzi: "去", pinyin: "qù", english: "go", pos: "verb", isHsk: true },
+      { hanzi: "庙会", pinyin: "miàohuì", english: "temple fair", pos: "noun", isHsk: false },
+      { hanzi: "看", pinyin: "kàn", english: "watch", pos: "verb", isHsk: true },
+      { hanzi: "舞龙", pinyin: "wǔ lóng", english: "dragon dance", pos: "noun-phrase", isHsk: false },
+      { hanzi: "，", pinyin: "，", english: "", pos: "particle", isHsk: true },
+      { hanzi: "约翰", pinyin: "Yuēhàn", english: "John", pos: "noun", isHsk: false },
+      { hanzi: "不停", pinyin: "bù tíng", english: "non-stop", pos: "adverb", isHsk: false },
+      { hanzi: "地", pinyin: "de", english: "(adverb marker)", pos: "grammar", isHsk: true },
+      { hanzi: "拍照", pinyin: "pāizhào", english: "take photos", pos: "verb", isHsk: false },
+      { hanzi: "，", pinyin: "，", english: "", pos: "particle", isHsk: true },
+      { hanzi: "他说", pinyin: "tā shuō", english: "he said", pos: "expression", isHsk: true },
+      { hanzi: "要", pinyin: "yào", english: "want to", pos: "verb", isHsk: true },
+      { hanzi: "每天", pinyin: "měitiān", english: "every day", pos: "adverb", isHsk: true },
+      { hanzi: "练习", pinyin: "liànxí", english: "practice", pos: "verb", isHsk: true },
+      { hanzi: "汉字", pinyin: "hànzì", english: "Chinese characters", pos: "noun", isHsk: false },
+      { hanzi: "，", pinyin: "，", english: "", pos: "particle", isHsk: true },
+      { hanzi: "明年", pinyin: "míngnián", english: "next year", pos: "noun", isHsk: true },
+      { hanzi: "再", pinyin: "zài", english: "again", pos: "adverb", isHsk: true },
+      { hanzi: "用", pinyin: "yòng", english: "use", pos: "verb", isHsk: true },
+      { hanzi: "中文", pinyin: "Zhōngwén", english: "Chinese", pos: "noun", isHsk: false },
+      { hanzi: "给", pinyin: "gěi", english: "for", pos: "verb", isHsk: true },
+      { hanzi: "朋友", pinyin: "péngyǒu", english: "friends", pos: "noun", isHsk: true },
+      { hanzi: "写", pinyin: "xiě", english: "write", pos: "verb", isHsk: true },
+      { hanzi: "贺卡", pinyin: "hèkǎ", english: "greeting card", pos: "noun", isHsk: false },
+      { hanzi: "。", pinyin: "。", english: "", pos: "particle", isHsk: true },
+    ],
+  ],
+};
