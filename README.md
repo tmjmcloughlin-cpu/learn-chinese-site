@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# language-hover-site
 
-## Getting Started
+A Next.js + Tailwind starter that replicates the MandarinBean-style hover reader: every Chinese token is
+wrapped in a semantic button so you can reveal pinyin + English glosses on hover (desktop) or tap/focus
+(mobile + keyboard). All logic is driven by a simple JSON-like data structure, so you can swap in any
+language pair or auto-generate the spans from a glossary file (CC-CEDICT, JMdict, etc.).
 
-First, run the development server:
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install      # already run during scaffolding, but safe to repeat
+npm run dev      # http://localhost:3000
+npm run lint     # eslint sanity check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project anatomy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├─ app/
+│  ├─ page.tsx          // sample lesson + tooltip interactions
+│  └─ globals.css       // Tailwind + gradient background + body font
+└─ data/ (create me)    // good spot for CC-CEDICT derived JSON later
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Key implementation details:
+- **Accessibility:** tokens are `button` elements with `tabIndex`, so keyboard users can focus and hear the
+  tooltip content through their screen reader.
+- **State-light:** hover/focus interactions are CSS-driven; React state only tracks which token is “pinned”
+  after a tap so mobile users can keep the card open.
+- **Styling:** the tooltip uses Tailwind utilities, no third-party dependency. Drop in Tippy.js/Popper later
+  if you want smarter viewport-aware positioning.
 
-## Learn More
+## Next steps
 
-To learn more about Next.js, take a look at the following resources:
+1. Import a free glossary (CC-CEDICT) into `/data/glossary.json` or a SQLite DB.
+2. Write a build-time script that tokenizes lesson Markdown, looks up matches, and emits the span-wrapped
+   JSX/HTML.
+3. Add audio playback via `<audio>` tags or Web Speech API.
+4. Deploy to Vercel/Netlify (both free for this scale) — repo is already git-initialized, so pushing is
+   enough to trigger CI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Questions or tweaks? Drop TODOs in `README.md` or open an issue once you wire it to GitHub.
