@@ -129,6 +129,41 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="rounded-4xl bg-gradient-to-br from-[#4b2bbd] via-[#7f5af0] to-[#ff6f91] p-8 text-white shadow-2xl">
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Teacher-led options</p>
+            <h2 className="text-2xl font-semibold">Meet the That’s Mandarin lesson types</h2>
+            <p className="text-sm text-white/80">
+              Each block is a real class introduction from a That’s Mandarin teacher. Pick the vibe you want, tap through, and book with
+              the pre-filled link (UTMs included so you get credit).
+            </p>
+          </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {lessonTypePromos.map((promo) => (
+              <article
+                key={promo.title}
+                className={`rounded-3xl border border-white/10 bg-gradient-to-br ${promo.gradient} p-5 shadow-lg`}
+              >
+                <div className="relative h-44 w-full overflow-hidden rounded-2xl">
+                  <Image src={promo.image} alt={promo.title} fill className="object-cover" />
+                </div>
+                <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/70">{promo.tag}</p>
+                <h3 className="text-xl font-semibold text-white">{promo.title}</h3>
+                <p className="text-sm text-white/90">{promo.intro}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/80">What to expect</p>
+                <p className="text-sm text-white/90">{promo.expectation}</p>
+                <Link
+                  href={promo.link}
+                  target="_blank"
+                  className="mt-3 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-500"
+                >
+                  Book with this teacher →
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="rounded-4xl bg-gradient-to-br from-[#ffba7a] to-[#ff6f91] p-8 text-white shadow-2xl">
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-4">
@@ -288,3 +323,71 @@ export default function Home() {
     </div>
   );
 }
+const lessonTypePromos = [
+  {
+    title: "Online Flex Program",
+    tag: "Online",
+    gradient: "from-[#5d50c6] to-[#8a64e8]",
+    image: "/images/tm-online.jpg",
+    teacher: "Teacher Li",
+    intro:
+      "Hi, I’m Teacher Li on the NihaoCafe online campus. We warm up with tone drills, then screen-share interactive slides for new vocab.",
+    expectation: "Expect 60 minutes of guided reading, breakout pronunciation practice, and annotated notes saved to NihaoCafe.",
+    link: "https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+  },
+  {
+    title: "1-on-1 Private Lesson",
+    tag: "1-to-1",
+    gradient: "from-[#7b5cd6] to-[#b04ae0]",
+    image: "/images/tm-one-on-one.jpg",
+    teacher: "Teacher Chen",
+    intro:
+      "Hello! I’m Teacher Chen. First five minutes we align on goals, then I tailor the reading + speaking drills just for you.",
+    expectation: "Screen-share your hover lesson, pause to role-play, and leave with a mini assignment recorded in NihaoCafe.",
+    link: "https://www.thatsmandarin.com/one-on-one-chinese-lessons/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+  },
+  {
+    title: "Group Class Playbook",
+    tag: "Group",
+    gradient: "from-[#b04ae0] to-[#ff6f91]",
+    image: "/images/tm-group.jpg",
+    teacher: "Teacher Mei",
+    intro:
+      "Hi, I’m Teacher Mei. Small groups (max 6) mean everyone reads aloud, swaps feedback, and keeps the pace together.",
+    expectation: "Breakout reading circles, peer corrections, and homework posted right inside NihaoCafe after class.",
+    link: "https://www.thatsmandarin.com/part-time-group-chinese-classes/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+  },
+  {
+    title: "Summer Camp Live",
+    tag: "Summer",
+    gradient: "from-[#ff6f91] to-[#ff9671]",
+    image: "/images/tm-summer.jpg",
+    teacher: "Coach Ada",
+    intro:
+      "Ni hao campers! I host culture stories, craft time, and outdoor vocab live from Beijing + Shenzhen campuses.",
+    expectation: "Movement warm-ups, new friends, and daily badges logged in NihaoCafe for parents to review.",
+    link: "https://www.thatsmandarin.com/chinese-summer-camp/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+  },
+  {
+    title: "Winter Camp Express",
+    tag: "Winter",
+    gradient: "from-[#ff9671] to-[#ffb677]",
+    image: "/images/tm-winter.jpg",
+    teacher: "Coach Rui",
+    intro:
+      "I’m Coach Rui. Winter sessions mix snowy scavenger hunts with calligraphy + reading circles.",
+    expectation: "Bilingual guides on every excursion, nightly reflection prompts, and recap videos for parents.",
+    link: "https://www.thatsmandarin.com/chinese-winter-camp/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+  },
+  {
+    title: "Immersion Day",
+    tag: "Immersion",
+    gradient: "from-[#ffb677] to-[#ffcc66]",
+    image: "/images/tm-immersion.jpg",
+    teacher: "Teacher Wang",
+    intro:
+      "Ni hao! I guide you through a full-day plan in Beijing or Shanghai—breakfast orders, metro missions, and tutoring blocks.",
+    expectation: "Street tasks + classroom debriefs, all logged in NihaoCafe so you remember every dialogue.",
+    link: "https://www.thatsmandarin.com/intensive-chinese-course/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+  },
+];
