@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LessonReader } from "@/components/lesson-reader";
+import { AuthorCard } from "@/components/author-card";
 import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 import { hsk2WorkTravelMeetup } from "@/data/lessons/hsk2-work-travel-meetup";
 
@@ -10,6 +11,21 @@ const legend = [
   { label: "Adjective", color: "bg-emerald-200 text-emerald-900" },
   { label: "Adverb", color: "bg-amber-200 text-amber-900" },
   { label: "Expression", color: "bg-purple-200 text-purple-900" },
+];
+
+const prompts = [
+  {
+    title: "行程复述",
+    chinese: "用三句话复述李娜为杰森安排的交通、酒店和晚餐计划。",
+    pinyin: "Yòng sān jù huà fùshù Lǐ Nà wèi Jiésēn ānpái de jiāotōng, jiǔdiàn hé wǎncān jìhuà.",
+    english: "Retell in three sentences the transport, hotel, and dinner plan Li Na set up for Jason.",
+  },
+  {
+    title: "口语输出",
+    chinese: "说说你最近一次出差：你得准备什么？有什么好吃的？",
+    pinyin: "Shuōshuō nǐ zuìjìn yī cì chūchāi: nǐ děi zhǔnbèi shénme? Yǒu shénme hǎochī de?",
+    english: "Talk about your latest business trip: what did you have to prepare and what tasty food did you find?",
+  },
 ];
 
 export default function LessonPage() {
@@ -70,20 +86,18 @@ export default function LessonPage() {
         <section className="rounded-3xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-6 text-white">
           <p className="text-sm uppercase tracking-[0.4em] text-white/70">Practice prompts</p>
           <div className="mt-3 grid gap-4 md:grid-cols-2">
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">行程复述</h3>
-              <p className="text-sm text-white/80">
-                用三句话复述李娜为杰森安排的交通、酒店和晚餐计划。
-              </p>
-            </article>
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">口语输出</h3>
-              <p className="text-sm text-white/80">
-                说说你最近一次出差：你得准备什么？有什么好吃的？
-              </p>
-            </article>
+            {prompts.map((prompt) => (
+              <article key={prompt.title} className="rounded-2xl bg-white/10 p-4 shadow-sm">
+                <h3 className="text-lg font-semibold">{prompt.title}</h3>
+                <p className="text-sm text-white">{prompt.chinese}</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-white/70">{prompt.pinyin}</p>
+                <p className="text-sm text-white/90">{prompt.english}</p>
+              </article>
+            ))}
           </div>
         </section>
+
+        <AuthorCard />
 
         <ThatsMandarinPromo variant="compact" />
       </div>

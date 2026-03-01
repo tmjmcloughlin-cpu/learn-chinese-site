@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LessonReader } from "@/components/lesson-reader";
+import { AuthorCard } from "@/components/author-card";
 import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 import { chineseJohnSpringFestival } from "@/data/lessons/chinese-john-spring-festival";
 
@@ -10,6 +11,21 @@ const legend = [
   { label: "Adjective", color: "bg-emerald-200 text-emerald-900" },
   { label: "Adverb", color: "bg-amber-200 text-amber-900" },
   { label: "Expression", color: "bg-purple-200 text-purple-900" },
+];
+
+const prompts = [
+  {
+    title: "口语练习",
+    chinese: "用中文解释 “年年有余” 的意思，并分享你家过年的一道菜。",
+    pinyin: "Yòng zhōngwén jiěshì ‘niánnián yǒu yú’ de yìsi, bìng fēnxiǎng nǐ jiā guònián de yī dào cài.",
+    english: "Explain ‘niánnián yǒu yú’ in Chinese and share one New Year dish your family prepares.",
+  },
+  {
+    title: "写作练习",
+    chinese: "写两句话：你今年要和谁一起过春节？你们会做什么活动？",
+    pinyin: "Xiě liǎng jù huà: nǐ jīnnián yào hé shuí yīqǐ guò Chūn Jié? Nǐmen huì zuò shénme huódòng?",
+    english: "Write two sentences: who will you celebrate Spring Festival with this year, and what will you do together?",
+  },
 ];
 
 export default function LessonPage() {
@@ -70,20 +86,18 @@ export default function LessonPage() {
         <section className="rounded-3xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-6 text-white">
           <p className="text-sm uppercase tracking-[0.4em] text-white/70">Practice prompts</p>
           <div className="mt-3 grid gap-4 md:grid-cols-2">
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">口语练习</h3>
-              <p className="text-sm text-white/80">
-                用中文解释 “年年有余” 的意思，并分享你家过年的一道菜。
-              </p>
-            </article>
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">写作练习</h3>
-              <p className="text-sm text-white/80">
-                写两句话：你今年要和谁一起过春节？你们会做什么活动？
-              </p>
-            </article>
+            {prompts.map((prompt) => (
+              <article key={prompt.title} className="rounded-2xl bg-white/10 p-4 shadow-sm">
+                <h3 className="text-lg font-semibold">{prompt.title}</h3>
+                <p className="text-sm text-white">{prompt.chinese}</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-white/70">{prompt.pinyin}</p>
+                <p className="text-sm text-white/90">{prompt.english}</p>
+              </article>
+            ))}
           </div>
         </section>
+
+        <AuthorCard />
 
         <ThatsMandarinPromo variant="compact" />
       </div>

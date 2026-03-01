@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LessonReader } from "@/components/lesson-reader";
+import { AuthorCard } from "@/components/author-card";
 import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 import { hsk3StartupDemoDay } from "@/data/lessons/hsk3-startup-demo-day";
 
@@ -10,6 +11,21 @@ const legend = [
   { label: "Adjective", color: "bg-emerald-200 text-emerald-900" },
   { label: "Adverb", color: "bg-amber-200 text-amber-900" },
   { label: "Expression", color: "bg-purple-200 text-purple-900" },
+];
+
+const prompts = [
+  {
+    title: "复盘笔记",
+    chinese: "写三句话总结团队为演示会做的准备，并说说谁负责哪些任务。",
+    pinyin: "Xiě sān jù huà zǒngjié tuánduì wèi yǎnshì huì zuò de zhǔnbèi, bìng shuōshuō shuí fùzé nǎxiē rènwù.",
+    english: "Write three sentences summarizing the team’s demo prep and who handled each task.",
+  },
+  {
+    title: "条件句输出",
+    chinese: "用 “如果…就…” 造两句计划改动的句子，比如天气或设备变化。",
+    pinyin: "Yòng ‘rúguǒ… jiù…’ zào liǎng jù jìhuà gǎidòng de jùzi, bǐrú tiānqì huò shèbèi biànhuà.",
+    english: "Use ‘if… then…’ to write two sentences about potential plan changes, like weather or equipment shifts.",
+  },
 ];
 
 export default function LessonPage() {
@@ -70,20 +86,18 @@ export default function LessonPage() {
         <section className="rounded-3xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-6 text-white">
           <p className="text-sm uppercase tracking-[0.4em] text-white/70">Practice prompts</p>
           <div className="mt-3 grid gap-4 md:grid-cols-2">
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">复盘笔记</h3>
-              <p className="text-sm text-white/80">
-                写三句话总结团队为演示会做的准备，并说说谁负责哪些任务。
-              </p>
-            </article>
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">条件句输出</h3>
-              <p className="text-sm text-white/80">
-                用 “如果…就…” 造两句计划改动的句子，比如天气或设备变化。
-              </p>
-            </article>
+            {prompts.map((prompt) => (
+              <article key={prompt.title} className="rounded-2xl bg-white/10 p-4 shadow-sm">
+                <h3 className="text-lg font-semibold">{prompt.title}</h3>
+                <p className="text-sm text-white">{prompt.chinese}</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-white/70">{prompt.pinyin}</p>
+                <p className="text-sm text-white/90">{prompt.english}</p>
+              </article>
+            ))}
           </div>
         </section>
+
+        <AuthorCard />
 
         <ThatsMandarinPromo variant="compact" />
       </div>

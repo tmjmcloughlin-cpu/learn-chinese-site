@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LessonReader } from "@/components/lesson-reader";
+import { AuthorCard } from "@/components/author-card";
 import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 import { hsk2RemoteSync } from "@/data/lessons/hsk2-remote-sync";
 
@@ -10,6 +11,21 @@ const legend = [
   { label: "Adjective", color: "bg-emerald-200 text-emerald-900" },
   { label: "Adverb", color: "bg-amber-200 text-amber-900" },
   { label: "Expression", color: "bg-purple-200 text-purple-900" },
+];
+
+const prompts = [
+  {
+    title: "会议总结",
+    chinese: "用三句话总结你和同事要讨论的内容，以及谁得准备什么资料。",
+    pinyin: "Yòng sān jù huà zǒngjié nǐ hé tóngshì yào tǎolùn de nèiróng, yǐjí shuí děi zhǔnbèi shénme zīliào.",
+    english: "Summarize in three sentences what you and your teammate need to discuss and who must prepare which files.",
+  },
+  {
+    title: "口语输出",
+    chinese: "练习邀请同事 “会议后要不要一起喝咖啡？” 并给出时间。",
+    pinyin: "Liànxí yāoqǐng tóngshì ‘huìyì hòu yào bùyào yīqǐ hē kāfēi?’ bìng gěi chū shíjiān.",
+    english: "Practice inviting a colleague for coffee after the meeting and state the time.",
+  },
 ];
 
 export default function LessonPage() {
@@ -70,20 +86,18 @@ export default function LessonPage() {
         <section className="rounded-3xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-6 text-white">
           <p className="text-sm uppercase tracking-[0.4em] text-white/70">Practice prompts</p>
           <div className="mt-3 grid gap-4 md:grid-cols-2">
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">会议总结</h3>
-              <p className="text-sm text-white/80">
-                用三句话总结你和同事要讨论的内容，以及谁得准备什么资料。
-              </p>
-            </article>
-            <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">口语输出</h3>
-              <p className="text-sm text-white/80">
-                练习邀请同事 “会议后要不要一起喝咖啡？” 并给出时间。
-              </p>
-            </article>
+            {prompts.map((prompt) => (
+              <article key={prompt.title} className="rounded-2xl bg-white/10 p-4 shadow-sm">
+                <h3 className="text-lg font-semibold">{prompt.title}</h3>
+                <p className="text-sm text-white">{prompt.chinese}</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-white/70">{prompt.pinyin}</p>
+                <p className="text-sm text-white/90">{prompt.english}</p>
+              </article>
+            ))}
           </div>
         </section>
+
+        <AuthorCard />
 
         <ThatsMandarinPromo variant="compact" />
       </div>
