@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LessonReader } from "@/components/lesson-reader";
-import { chineseJohnSpringFestival } from "@/data/lessons/chinese-john-spring-festival";
+import { hsk2RemoteSync } from "@/data/lessons/hsk2-remote-sync";
 
 const legend = [
   { label: "Noun", color: "bg-sky-200 text-sky-900" },
@@ -12,7 +12,7 @@ const legend = [
 ];
 
 export default function LessonPage() {
-  const lesson = chineseJohnSpringFestival;
+  const lesson = hsk2RemoteSync;
 
   return (
     <div className="bg-neutral-50 px-4 py-12 text-slate-900">
@@ -26,14 +26,14 @@ export default function LessonPage() {
 
         <header className="grid gap-6 rounded-3xl bg-white p-6 shadow-sm md:grid-cols-[2fr_1fr]">
           <div className="space-y-4">
-          <p className="text-xs uppercase tracking-[0.4em] text-rose-400">
-            HSK {lesson.hskLevel} · {lesson.category}
-          </p>
-          <h1 className="text-4xl font-semibold text-slate-900">{lesson.title}</h1>
-          <p className="text-lg text-slate-600">{lesson.summary}</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-rose-400">
+              HSK {lesson.hskLevel} · {lesson.category}
+            </p>
+            <h1 className="text-4xl font-semibold text-slate-900">{lesson.title}</h1>
+            <p className="text-lg text-slate-600">{lesson.summary}</p>
           </div>
           <div className="relative h-60 w-full overflow-hidden rounded-2xl">
-            <Image src={lesson.coverImage} alt={lesson.heroImageAlt} fill className="object-cover" priority />
+            <Image src={lesson.coverImage} alt={lesson.heroImageAlt} fill className="object-cover" />
           </div>
         </header>
 
@@ -70,15 +70,15 @@ export default function LessonPage() {
           <p className="text-sm uppercase tracking-[0.4em] text-white/70">Practice prompts</p>
           <div className="mt-3 grid gap-4 md:grid-cols-2">
             <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">口语练习</h3>
+              <h3 className="text-lg font-semibold">会议总结</h3>
               <p className="text-sm text-white/80">
-                用中文解释 “年年有余” 的意思，并分享你家过年的一道菜。
+                用三句话总结你和同事要讨论的内容，以及谁得准备什么资料。
               </p>
             </article>
             <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
-              <h3 className="text-lg font-semibold">写作练习</h3>
+              <h3 className="text-lg font-semibold">口语输出</h3>
               <p className="text-sm text-white/80">
-                写两句话：你今年要和谁一起过春节？你们会做什么活动？
+                练习邀请同事 “会议后要不要一起喝咖啡？” 并给出时间。
               </p>
             </article>
           </div>

@@ -66,7 +66,7 @@ export default function LessonPage() {
           <LessonReader lesson={lesson} />
         </section>
 
-        <section className="rounded-3xl bg-gradient-to-br from-rose-500 to-amber-400 p-6 text-white">
+        <section className="rounded-3xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-6 text-white">
           <p className="text-sm uppercase tracking-[0.4em] text-white/70">Practice prompts</p>
           <div className="mt-3 grid gap-4 md:grid-cols-2">
             <article className="rounded-2xl bg-white/10 p-4 shadow-sm">
