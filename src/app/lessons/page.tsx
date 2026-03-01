@@ -1,7 +1,17 @@
+export const metadata: Metadata = {
+  title: "Lesson feed · Learn Chinese Daily",
+  alternates: {
+    canonical: `${siteUrl}/lessons`,
+  },
+};
+
+import type { Metadata } from "next";
 "use client";
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { siteUrl } from "../layout";
 import { lessons } from "@/data/lessons";
 
 const levelFilters = ["All", "HSK1", "HSK2", "HSK3"];

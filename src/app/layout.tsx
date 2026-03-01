@@ -14,7 +14,7 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
-const siteUrl = "https://learn-chinese-site.vercel.app";
+export const siteUrl = "https://learn-chinese-site-g73u.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
