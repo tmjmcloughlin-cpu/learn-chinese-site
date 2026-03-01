@@ -40,13 +40,18 @@ export default function Home() {
   const featuredLessons = lessons.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-[#120c3b] via-[#151c4f] to-[#1c1f33] px-4 py-10 text-slate-50">
       <main className="mx-auto flex max-w-6xl flex-col gap-10">
         <section className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-[#ffe066] via-[#ff9f68] to-[#ff6f91] p-10 text-white shadow-2xl">
           <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/20 blur-3xl" aria-hidden />
           <div className="absolute right-0 top-10 h-40 w-40 rounded-[35%] bg-white/20 blur-3xl" aria-hidden />
           <div className="relative space-y-6">
+            <div className="flex flex-wrap items-center gap-4">
+            <div className="rounded-2xl bg-[#ffe066] px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-[#7a3a00] shadow-lg">
+              LC
+            </div>
             <p className="text-xs uppercase tracking-[0.4em] text-white/70">Daily Chinese drop · coral → mango palette</p>
+          </div>
             <h1 className="text-4xl font-semibold leading-tight">
               Drops-inspired stories. Hover any character and the pinyin + part of speech appears instantly.
             </h1>
@@ -233,7 +238,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-white p-8 shadow-2xl">
+        <section className="rounded-4xl bg-white/95 p-8 text-slate-900 shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Subject filters</p>
             <h2 className="text-2xl font-semibold text-slate-900">Pick the context you care about</h2>
@@ -243,7 +248,7 @@ export default function Home() {
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-4">
             {subjects.map((subject) => (
-              <article key={subject.name} className={`rounded-3xl border border-black/5 px-4 py-5 ${subject.color}`}>
+              <article key={subject.name} className={`rounded-3xl border border-white/10 bg-white/90 px-4 py-5 text-slate-900 ${subject.color}`}>
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-600">{subject.name}</p>
                 <p className="mt-2 text-sm text-slate-700">{subject.description}</p>
                 <button className="mt-4 text-xs font-semibold text-rose-500">Browse {subject.name} lessons →</button>
@@ -252,7 +257,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-gradient-to-br from-[#4b2bbd] to-[#120c3b] p-8 text-slate-50 shadow-2xl">
+        <section className="rounded-4xl bg-gradient-to-br from-[#27105a] to-[#0f0a27] p-8 text-slate-50 shadow-2xl">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-rose-200">Why this format works</p>
