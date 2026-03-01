@@ -40,9 +40,9 @@ export default function Home() {
   const featuredLessons = lessons.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#fff8f1] px-4 py-10 text-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 text-slate-900">
       <main className="mx-auto flex max-w-6xl flex-col gap-10">
-        <section className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-[#ff7eb3] via-[#ff758c] to-[#ffb677] p-10 text-white shadow-2xl">
+        <section className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-[#ffe066] via-[#ff9f68] to-[#ff6f91] p-10 text-white shadow-2xl">
           <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/20 blur-3xl" aria-hidden />
           <div className="absolute right-0 top-10 h-40 w-40 rounded-[35%] bg-white/20 blur-3xl" aria-hidden />
           <div className="relative space-y-6">
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-gradient-to-br from-[#ffb677] via-[#ff8c8c] to-[#ff6f91] p-8 text-white shadow-2xl">
+        <section className="rounded-4xl bg-gradient-to-br from-[#ff5f6d] to-[#ffc371] p-8 text-white shadow-2xl">
           <div className="grid gap-8 lg:grid-cols-2">
             <article className="space-y-5">
               <p className="text-xs uppercase tracking-[0.4em] text-white/80">Today’s spotlight</p>
@@ -124,7 +124,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-[#1f1a2b] p-8 text-white shadow-2xl">
+        <section className="rounded-4xl bg-gradient-to-br from-[#1c2f66] to-[#3a7bd5] p-8 text-white shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-white/60">Latest drops</p>
             <h2 className="text-2xl font-semibold">Swipe through the newest HSK stories</h2>
@@ -171,7 +171,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="levels" className="rounded-4xl bg-gradient-to-r from-[#ffd86f] via-[#ff9770] to-[#ff6f91] p-8 text-white shadow-2xl">
+        <section id="levels" className="rounded-4xl bg-gradient-to-r from-[#7f5af0] via-[#9a57ff] to-[#c850c0] p-8 text-white shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-white/70">Level selector</p>
             <h2 className="text-2xl font-semibold">One new lesson per HSK lane</h2>
@@ -216,7 +216,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-[#111322] p-8 text-slate-50 shadow-2xl">
+        <section className="rounded-4xl bg-gradient-to-br from-[#4b2bbd] to-[#120c3b] p-8 text-slate-50 shadow-2xl">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-rose-200">Why this format works</p>
