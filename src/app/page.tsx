@@ -124,6 +124,42 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="rounded-4xl bg-gradient-to-br from-[#ffba7a] to-[#ff6f91] p-8 text-white shadow-2xl">
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center gap-4">
+              <Image src="/images/partner-nihaocafe.png" alt="That’s Mandarin / NihaoCafe" width={150} height={40} className="drop-shadow" />
+              <p className="text-xs uppercase tracking-[0.4em] text-white/70">That’s Mandarin Online School</p>
+            </div>
+            <h2 className="text-2xl font-semibold">Pair hover reading with live immersion</h2>
+            <p className="text-base text-white/90">
+              When you need speaking + listening reps, jump into That’s Mandarin’s online program. Classes run through NihaoCafe,
+              their in-house platform, and every teacher is native, TCSL-certified, and part of the top 5% of applicants they
+              accept.
+            </p>
+            <ul className="space-y-2 text-sm text-white/90">
+              <li>• 100% Chinese instruction, even for beginners (teachers lean on visuals instead of switching to English)</li>
+              <li>• NihaoCafe homework, recordings, and vocab tracking after every session</li>
+              <li>• Dedicated HSK Preparation Course with mock exams + coaching when you’re test-focused</li>
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
+                target="_blank"
+                className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500"
+              >
+                Explore live classes
+              </Link>
+              <Link
+                href="https://www.thatsmandarin.com/hsk-preparation-course/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
+                target="_blank"
+                className="rounded-full border border-white/70 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white"
+              >
+                HSK prep course
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="rounded-4xl bg-gradient-to-br from-[#1c2f66] to-[#3a7bd5] p-8 text-white shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-white/60">Latest drops</p>
