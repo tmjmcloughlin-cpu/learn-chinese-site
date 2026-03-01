@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Lesson, Token } from "@/data/lessons/chinese-john-spring-festival";
+import type { Lesson, Token } from "@/data/lessons/types";
 
 const posColors: Record<string, string> = {
   noun: "text-sky-700",
