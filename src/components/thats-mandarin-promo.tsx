@@ -9,6 +9,10 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
     return (
       <section className="rounded-3xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-6 text-white shadow-lg">
         <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <Image src="/images/partner-nihaocafe.png" alt="NihaoCafe" width={120} height={28} className="drop-shadow" />
+            <span className="text-xs uppercase tracking-[0.3em] text-white/70">Powered by NihaoCafe</span>
+          </div>
           <p className="text-xs uppercase tracking-[0.4em] text-white/70">Partner drop</p>
           <h3 className="text-2xl font-semibold">Live lessons with That’s Mandarin</h3>
           <p className="text-sm text-white/90">
@@ -40,6 +44,10 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
     <section className="rounded-4xl bg-gradient-to-br from-[#ff7e67] to-[#ffd76f] p-8 text-white shadow-2xl">
       <div className="grid gap-6 lg:grid-cols-[3fr_2fr]">
         <div className="space-y-4">
+          <div className="flex items-center gap-4">
+            <Image src="/images/partner-nihaocafe.png" alt="NihaoCafe" width={160} height={40} className="drop-shadow" />
+            <span className="text-xs uppercase tracking-[0.3em] text-white/70">Official partner</span>
+          </div>
           <p className="text-xs uppercase tracking-[0.4em] text-white/70">Partner resource</p>
           <h2 className="text-3xl font-semibold">Study live with That’s Mandarin</h2>
           <p className="text-base text-white/90">

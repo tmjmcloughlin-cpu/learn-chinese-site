@@ -1,49 +1,54 @@
 import Image from "next/image";
 import Link from "next/link";
 import { lessons, latestLesson } from "@/data/lessons";
-import { ThatsMandarinPromo } from "@/components/thats-mandarin-promo";
 
 const levelTracks = [
   {
     level: "HSK 1",
     title: "First words",
-    description: "Color-coded mini stories covering greetings, family, food, and transport essentials.",
-    release: "06:00 daily",
+    description: "120-character micro stories: greetings, family, food, taxis.",
+    palette: "from-[#ffd86f] to-[#ffae66]",
   },
   {
     level: "HSK 2",
     title: "Daily life",
-    description: "Work, travel, and celebration narratives with 会 / 要 / 想 patterns highlighted.",
-    release: "06:00 daily",
+    description: "Travel + work scenes with 会 / 要 / 想 patterns and noun color-coding.",
+    palette: "from-[#ff9770] to-[#ff6f91]",
   },
   {
     level: "HSK 3",
     title: "Applied living",
-    description: "Office, planning, and wellness flows with grammar callouts and light audio cues.",
-    release: "06:00 daily",
+    description: "Office, wellness, planning narratives with grammar callouts + audio notes.",
+    palette: "from-[#ff6f91] to-[#ff9671]",
   },
 ];
 
 const subjects = [
-  { name: "Work", description: "Meetings, coworker chats, scheduling" },
-  { name: "Life", description: "Family, habits, health" },
-  { name: "Travel", description: "Transport, hotels, customs" },
-  { name: "Culture", description: "Festivals, food, etiquette" },
+  { name: "Work", description: "meetings · coworker syncs · remote calls", color: "bg-[#ffe9cf]" },
+  { name: "Life", description: "habits · food · health routines", color: "bg-[#ffd7e2]" },
+  { name: "Travel", description: "train trips · hotels · weekend plans", color: "bg-[#ffe6f3]" },
+  { name: "Culture", description: "festivals · etiquette · markets", color: "bg-[#ffe1d2]" },
+];
+
+const heroFacts = [
+  { label: "06:00 London", text: "Fresh drop every morning" },
+  { label: "90% in-level", text: "Dashed outlines mark stretch vocab" },
+  { label: "Hover = Pinyin", text: "Tap to pin on mobile" },
 ];
 
 export default function Home() {
   const featuredLessons = lessons.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#fff6f1] px-4 py-12 text-slate-900">
+    <div className="min-h-screen bg-[#fff8f1] px-4 py-10 text-slate-900">
       <main className="mx-auto flex max-w-6xl flex-col gap-10">
         <section className="relative overflow-hidden rounded-4xl bg-gradient-to-br from-[#ff7eb3] via-[#ff758c] to-[#ffb677] p-10 text-white shadow-2xl">
-          <div className="absolute -right-12 -top-12 h-60 w-60 rounded-full bg-white/20 blur-3xl" aria-hidden />
-          <div className="absolute bottom-0 right-10 h-32 w-32 rounded-[35%] bg-white/20 blur-3xl" aria-hidden />
+          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-white/20 blur-3xl" aria-hidden />
+          <div className="absolute right-0 top-10 h-40 w-40 rounded-[35%] bg-white/20 blur-3xl" aria-hidden />
           <div className="relative space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Daily Chinese drop · 06:00 London</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Daily Chinese drop · coral → mango palette</p>
             <h1 className="text-4xl font-semibold leading-tight">
-              Drops-inspired gradients, HSK-locked stories. Tap characters, see pinyin instantly.
+              Drops-inspired stories. Hover any character and the pinyin + part of speech appears instantly.
             </h1>
             <div className="max-w-3xl space-y-3 text-lg text-white/90">
               <p>
@@ -69,31 +74,34 @@ export default function Home() {
                 Pick my level
               </Link>
             </div>
-            <div className="flex flex-wrap gap-6 text-xs uppercase tracking-[0.3em] text-white/70">
-              <span>Color-coded parts of speech</span>
-              <span>Dashed outline = stretch vocab</span>
-              <span>New drop every morning</span>
+            <div className="grid gap-4 text-xs uppercase tracking-[0.3em] text-white/70 sm:grid-cols-3">
+              {heroFacts.map((fact) => (
+                <div key={fact.label} className="rounded-3xl bg-white/15 px-4 py-3 text-center font-semibold">
+                  <p className="text-white">{fact.label}</p>
+                  <p className="text-[0.7rem] text-white/70">{fact.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white p-8 shadow-lg shadow-rose-100">
+        <section className="rounded-4xl bg-gradient-to-br from-[#ffb677] via-[#ff8c8c] to-[#ff6f91] p-8 text-white shadow-2xl">
           <div className="grid gap-8 lg:grid-cols-2">
             <article className="space-y-5">
-              <p className="text-xs uppercase tracking-[0.4em] text-rose-400">Today’s spotlight</p>
-              <h2 className="text-3xl font-semibold text-slate-900">{latestLesson.title}</h2>
-              <p className="text-base text-slate-600">{latestLesson.summary}</p>
-              <div className="flex flex-wrap gap-3 text-xs font-semibold text-slate-600">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/80">Today’s spotlight</p>
+              <h2 className="text-3xl font-semibold">{latestLesson.title}</h2>
+              <p className="text-base text-white/90">{latestLesson.summary}</p>
+              <div className="flex flex-wrap gap-3 text-xs font-semibold">
                 {latestLesson.topicTags.map((tag) => (
-                  <span key={tag} className="rounded-full bg-rose-50 px-3 py-1 text-rose-700">
+                  <span key={tag} className="rounded-full bg-white/20 px-3 py-1 text-white">
                     {tag}
                   </span>
                 ))}
               </div>
-              <ul className="space-y-3 text-sm text-slate-600">
+              <ul className="space-y-3 text-sm text-white/90">
                 {latestLesson.focusPoints.map((point) => (
                   <li key={point} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-rose-400" aria-hidden />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-white" aria-hidden />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -101,35 +109,35 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href={`/lessons/${latestLesson.slug}`}
-                  className="rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white"
+                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500"
                 >
                   Read lesson
                 </Link>
-                <div className="rounded-full bg-rose-100 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+                <div className="rounded-full bg-white/15 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white">
                   HSK {latestLesson.hskLevel} · {new Date(latestLesson.date).toLocaleDateString("en-GB", { dateStyle: "medium" })}
                 </div>
               </div>
             </article>
-            <div className="relative h-80 w-full overflow-hidden rounded-3xl">
+            <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-white/20">
               <Image src={latestLesson.coverImage} alt={latestLesson.heroImageAlt} fill className="object-cover" priority />
             </div>
           </div>
         </section>
 
-        <section className="rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-sm">
-          <div className="flex flex-col gap-3">
-            <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Latest drops</p>
-            <h2 className="text-2xl font-semibold text-slate-900">Find the article that matches your level + subject</h2>
-            <p className="text-sm text-slate-600">
-              Each card shows the topic, HSK tier, and a splash image from real China moments. Tap through to see the
-              hover-ready reader.
+        <section className="rounded-4xl bg-[#1f1a2b] p-8 text-white shadow-2xl">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.4em] text-white/60">Latest drops</p>
+            <h2 className="text-2xl font-semibold">Swipe through the newest HSK stories</h2>
+            <p className="text-sm text-white/80">
+              We rotate subjects daily so there’s always a work, life, and travel article waiting. Tap a card to dive in and try the
+              hover reader yourself.
             </p>
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {featuredLessons.map((lesson) => (
               <article
                 key={lesson.slug}
-                className="group rounded-3xl border border-slate-100 bg-slate-50 shadow-sm transition hover:-translate-y-1"
+                className="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur transition hover:-translate-y-1"
               >
                 <div className="relative h-48 w-full overflow-hidden rounded-3xl">
                   <Image
@@ -140,21 +148,21 @@ export default function Home() {
                   />
                 </div>
                 <div className="space-y-3 px-4 py-5">
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-400">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ffd9ec]">
                     <span>HSK {lesson.hskLevel}</span>
-                    <span className="h-1 w-1 rounded-full bg-rose-200" aria-hidden />
+                    <span className="h-1 w-1 rounded-full bg-white/50" aria-hidden />
                     <span>{lesson.category}</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900">{lesson.title}</h3>
-                  <p className="text-sm text-slate-600">{lesson.summary}</p>
-                  <div className="flex flex-wrap gap-2 text-xs text-slate-500">
+                  <h3 className="text-lg font-semibold text-white">{lesson.title}</h3>
+                  <p className="text-sm text-white/80">{lesson.summary}</p>
+                  <div className="flex flex-wrap gap-2 text-xs text-white/70">
                     {lesson.topicTags.map((tag) => (
-                      <span key={tag} className="rounded-full bg-white px-2 py-1 text-slate-600">
+                      <span key={tag} className="rounded-full bg-white/10 px-2 py-1">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <Link href={`/lessons/${lesson.slug}`} className="inline-flex items-center text-sm font-semibold text-rose-500">
+                  <Link href={`/lessons/${lesson.slug}`} className="inline-flex items-center text-sm font-semibold text-[#ffd9ec]">
                     Read now →
                   </Link>
                 </div>
@@ -163,23 +171,25 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="levels" className="rounded-3xl bg-white p-8 shadow-lg shadow-rose-100">
+        <section id="levels" className="rounded-4xl bg-gradient-to-r from-[#ffd86f] via-[#ff9770] to-[#ff6f91] p-8 text-white shadow-2xl">
           <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Level selector</p>
-            <h2 className="text-2xl font-semibold text-slate-900">New lesson every morning for each HSK tier</h2>
-            <p className="text-sm text-slate-600">
-              Choose your lane—each feed sticks to ~90% target vocabulary. Non-level words wear the dashed amber outline so
-              you can note them quickly.
+            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Level selector</p>
+            <h2 className="text-2xl font-semibold">One new lesson per HSK lane</h2>
+            <p className="text-sm text-white/80">
+              Lessons stay 90% inside the target vocab range. Out-of-level words wear dashed outlines, so you can log them in your
+              notebook asap.
             </p>
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {levelTracks.map((track) => (
-              <article key={track.level} className="rounded-3xl border border-slate-100 bg-slate-900 text-white p-5">
-                <p className="text-xs uppercase tracking-[0.4em] text-amber-300">{track.level}</p>
+              <article
+                key={track.level}
+                className={`rounded-3xl bg-gradient-to-br ${track.palette} p-5 text-white shadow-lg backdrop-blur`}
+              >
+                <p className="text-xs uppercase tracking-[0.4em] text-white/80">{track.level}</p>
                 <h3 className="mt-3 text-xl font-semibold">{track.title}</h3>
-                <p className="mt-2 text-sm text-white/80">{track.description}</p>
-                <p className="mt-4 text-xs text-white/60">Release: {track.release}</p>
-                <button className="mt-5 inline-flex items-center text-sm font-semibold text-amber-200">
+                <p className="mt-2 text-sm text-white/90">{track.description}</p>
+                <button className="mt-4 inline-flex items-center text-xs font-semibold uppercase tracking-[0.3em] text-white">
                   View stories →
                 </button>
               </article>
@@ -187,54 +197,48 @@ export default function Home() {
           </div>
         </section>
 
-        <ThatsMandarinPromo variant="full" />
-
-        <section className="rounded-3xl bg-white p-8 shadow-lg shadow-rose-100">
+        <section className="rounded-4xl bg-white p-8 shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Subject filters</p>
             <h2 className="text-2xl font-semibold text-slate-900">Pick the context you care about</h2>
             <p className="text-sm text-slate-600">
-              Each subject gets its own rotating queue of lessons. Tap a card to surface matching articles for your HSK level.
+              Work call coming up? Planning a trip? Tap a subject and grab the matching article in seconds.
             </p>
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-4">
             {subjects.map((subject) => (
-              <article key={subject.name} className="rounded-3xl border border-slate-100 bg-slate-50 p-4">
-                <p className="text-xs uppercase tracking-[0.3em] text-rose-400">{subject.name}</p>
-                <p className="mt-2 text-sm text-slate-600">{subject.description}</p>
-                <button className="mt-4 text-xs font-semibold text-rose-500">
-                  Browse {subject.name} lessons →
-                </button>
+              <article key={subject.name} className={`rounded-3xl border border-black/5 px-4 py-5 ${subject.color}`}>
+                <p className="text-xs uppercase tracking-[0.3em] text-slate-600">{subject.name}</p>
+                <p className="mt-2 text-sm text-slate-700">{subject.description}</p>
+                <button className="mt-4 text-xs font-semibold text-rose-500">Browse {subject.name} lessons →</button>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="rounded-3xl bg-slate-900 p-8 text-slate-50">
+        <section className="rounded-4xl bg-[#111322] p-8 text-slate-50 shadow-2xl">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-rose-200">Why this format works</p>
-              <h2 className="mt-3 text-2xl font-semibold">Daily micro-lessons, Language Drops energy</h2>
+              <h2 className="mt-3 text-2xl font-semibold">Coral gradients + hover grammar = fast reps</h2>
               <p className="mt-3 text-sm text-slate-200">
-                Gradient hero, single-row cards, and playful rounded buttons keep the UI breezy while the data stays strict:
-                90% HSK vocab per level, with stretch words intentionally highlighted. It’s the same “tap to learn” dopamine
-                loop you know from Drops, tuned for reading practice.
+                We borrow the playful energy of apps like Drops (gradients, rounded tiles, white typography) but keep the content
+                laser-focused on HSK bands. Hovering exposes pinyin + part of speech, dashed outlines warn you about stretch
+                vocab, and the companion practice prompts give you output reps.
               </p>
             </div>
-            <div className="space-y-4 rounded-3xl bg-slate-800/70 p-6">
+            <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6">
               <div>
                 <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Release cadence</p>
-                <p className="text-sm text-slate-200">New HSK 1–3 stories every day at 06:00 London.</p>
+                <p className="text-sm text-slate-200">New HSK 1–3 lessons every day at 06:00 London.</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Find the right fit</p>
-                <p className="text-sm text-slate-200">
-                  Filters, tags, and level capsules help you land on the exact difficulty in under 10 seconds.
-                </p>
+                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Find your fit</p>
+                <p className="text-sm text-slate-200">Color-coded parts of speech, stretch vocab warnings, and filters mean zero guesswork.</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Coming soon</p>
-                <p className="text-sm text-slate-200">Audio buttons, flashcard drills, and streak tracking.</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Next up</p>
+                <p className="text-sm text-slate-200">Audio buttons, flashcard drills, and streak tracking—rolling out soon.</p>
               </div>
             </div>
           </div>
