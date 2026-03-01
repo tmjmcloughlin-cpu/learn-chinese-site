@@ -79,7 +79,7 @@ export default function Home() {
         <section className="rounded-4xl bg-gradient-to-br from-[#1c2f66] to-[#3a7bd5] p-8 text-white shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-white/60">Latest drops</p>
-            <h2 className="text-2xl font-semibold">Swipe through the newest HSK stories</h2>
+            <h2 className="text-2xl font-semibold">Newest HSK stories</h2>
             <p className="text-sm text-white/80">
               We rotate subjects daily so there’s always a work, life, and travel article waiting. Tap a card to dive in and try the
               hover reader yourself.
@@ -241,7 +241,7 @@ export default function Home() {
         <section id="levels" className="rounded-4xl bg-gradient-to-r from-[#7f5af0] via-[#9a57ff] to-[#c850c0] p-8 text-white shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-white/70">Level selector</p>
-            <h2 className="text-2xl font-semibold">One new lesson per HSK lane</h2>
+            <h2 className="text-2xl font-semibold">Select your HSK level</h2>
             <p className="text-sm text-white/80">
               Lessons stay 90% inside the target vocab range. Out-of-level words wear dashed outlines, so you can log them in your
               notebook asap.
@@ -328,7 +328,7 @@ const lessonTypePromos = [
     title: "Immersion Day",
     tag: "Immersion",
     gradient: "from-[#ffb677] to-[#ffcc66]",
-    image: "/images/tm-immersion.jpg",
+    image: "/images/tm-immersion-2.jpg",
     intro:
       "Spend a full day in Beijing or Shanghai ordering meals, riding the metro, and checking in with a tutor at every stop.",
     expectation: "Street missions alternate with classroom coaching, and every dialogue is logged inside NihaoCafe for later review.",
