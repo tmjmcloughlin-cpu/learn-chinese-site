@@ -68,7 +68,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href={`/lessons/${latestLesson.slug}`}
-                className="rounded-full bg-white/95 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500 transition hover:bg-white"
+                className="rounded-full bg-white/95 px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffe066] transition hover:bg-white"
               >
                 Start today’s lesson
               </Link>
@@ -86,116 +86,6 @@ export default function Home() {
                   <p className="text-[0.7rem] text-white/70">{fact.text}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="rounded-4xl bg-gradient-to-br from-[#ff5f6d] to-[#ffc371] p-8 text-white shadow-2xl">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <article className="space-y-5">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/80">Today’s spotlight</p>
-              <h2 className="text-3xl font-semibold">{latestLesson.title}</h2>
-              <p className="text-base text-white/90">{latestLesson.summary}</p>
-              <div className="flex flex-wrap gap-3 text-xs font-semibold">
-                {latestLesson.topicTags.map((tag) => (
-                  <span key={tag} className="rounded-full bg-white/20 px-3 py-1 text-white">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <ul className="space-y-3 text-sm text-white/90">
-                {latestLesson.focusPoints.map((point) => (
-                  <li key={point} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-white" aria-hidden />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href={`/lessons/${latestLesson.slug}`}
-                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500"
-                >
-                  Read lesson
-                </Link>
-                <div className="rounded-full bg-white/15 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white">
-                  HSK {latestLesson.hskLevel} · {new Date(latestLesson.date).toLocaleDateString("en-GB", { dateStyle: "medium" })}
-                </div>
-              </div>
-            </article>
-            <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-white/20">
-              <Image src={latestLesson.coverImage} alt={latestLesson.heroImageAlt} fill className="object-cover" priority />
-            </div>
-          </div>
-        </section>
-
-        <section className="rounded-4xl bg-gradient-to-br from-[#4b2bbd] via-[#7f5af0] to-[#ff6f91] p-8 text-white shadow-2xl">
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Teacher-led options</p>
-            <h2 className="text-2xl font-semibold">Meet the That’s Mandarin lesson types</h2>
-            <p className="text-sm text-white/80">
-              Each block is a real class introduction from a That’s Mandarin teacher. Pick the vibe you want, tap through, and book with
-              the pre-filled link (UTMs included so you get credit).
-            </p>
-          </div>
-          <div className="mt-6 grid gap-5 md:grid-cols-2">
-            {lessonTypePromos.map((promo) => (
-              <article
-                key={promo.title}
-                className={`rounded-3xl border border-white/10 bg-gradient-to-br ${promo.gradient} p-5 shadow-lg`}
-              >
-                <div className="relative h-44 w-full overflow-hidden rounded-2xl">
-                  <Image src={promo.image} alt={promo.title} fill className="object-cover" />
-                </div>
-                <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/70">{promo.tag}</p>
-                <h3 className="text-xl font-semibold text-white">{promo.title}</h3>
-                <p className="text-sm text-white/90">{promo.intro}</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/80">What to expect</p>
-                <p className="text-sm text-white/90">{promo.expectation}</p>
-                <Link
-                  href={promo.link}
-                  target="_blank"
-                  className="mt-3 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-500"
-                >
-                  Book with this teacher →
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="rounded-4xl bg-gradient-to-br from-[#ffba7a] to-[#ff6f91] p-8 text-white shadow-2xl">
-          <div className="space-y-4">
-            <div className="flex flex-wrap items-center gap-4">
-              <Image src="/images/partner-nihaocafe.png" alt="That’s Mandarin / NihaoCafe" width={150} height={40} className="drop-shadow" />
-              <p className="text-xs uppercase tracking-[0.4em] text-white/70">That’s Mandarin Online School</p>
-            </div>
-            <h2 className="text-2xl font-semibold">Pair hover reading with live immersion</h2>
-            <p className="text-base text-white/90">
-              When you need speaking + listening reps, jump into That’s Mandarin’s online program. Classes run through NihaoCafe,
-              their in-house platform, and every teacher is native, TCSL-certified, and part of the top 5% of applicants they
-              accept.
-            </p>
-            <ul className="space-y-2 text-sm text-white/90">
-              <li>• 100% Chinese instruction, even for beginners (teachers lean on visuals instead of switching to English)</li>
-              <li>• NihaoCafe homework, recordings, and vocab tracking after every session</li>
-              <li>• Dedicated HSK Preparation Course with mock exams + coaching when you’re test-focused</li>
-            </ul>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
-                target="_blank"
-                className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-rose-500"
-              >
-                Explore live classes
-              </Link>
-              <Link
-                href="https://www.thatsmandarin.com/hsk-preparation-course/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
-                target="_blank"
-                className="rounded-full border border-white/70 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white"
-              >
-                HSK prep course
-              </Link>
             </div>
           </div>
         </section>
@@ -247,6 +137,121 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="rounded-4xl bg-gradient-to-br from-[#ff5f6d] to-[#ffc371] p-8 text-white shadow-2xl">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <article className="space-y-5">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/80">Today’s spotlight</p>
+              <h2 className="text-3xl font-semibold">{latestLesson.title}</h2>
+              <p className="text-base text-white/90">{latestLesson.summary}</p>
+              <div className="flex flex-wrap gap-3 text-xs font-semibold">
+                {latestLesson.topicTags.map((tag) => (
+                  <span key={tag} className="rounded-full bg-white/20 px-3 py-1 text-white">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <ul className="space-y-3 text-sm text-white/90">
+                {latestLesson.focusPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-2">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-white" aria-hidden />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`/lessons/${latestLesson.slug}`}
+                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffe066]"
+                >
+                  Read lesson
+                </Link>
+                <div className="rounded-full bg-white/15 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white">
+                  HSK {latestLesson.hskLevel} · {new Date(latestLesson.date).toLocaleDateString("en-GB", { dateStyle: "medium" })}
+                </div>
+              </div>
+            </article>
+            <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-white/20">
+              <Image src={latestLesson.coverImage} alt={latestLesson.heroImageAlt} fill className="object-cover" priority />
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-4xl bg-gradient-to-br from-[#4b2bbd] via-[#7f5af0] to-[#ff6f91] p-8 text-white shadow-2xl">
+          <div className="space-y-4">
+            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Teacher-led options</p>
+            <h2 className="text-2xl font-semibold">Meet the That’s Mandarin lesson types</h2>
+            <p className="text-sm text-white/80">
+              Each block is a real class introduction from a That’s Mandarin teacher. Pick the vibe you want, tap through, and book with
+              the pre-filled link (UTMs included so you get credit).
+            </p>
+          </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {lessonTypePromos.map((promo) => (
+              <article
+                key={promo.title}
+                className={`rounded-3xl border border-white/10 bg-gradient-to-br ${promo.gradient} p-5 shadow-lg`}
+              >
+                <div className="relative h-44 w-full overflow-hidden rounded-2xl">
+                  <Image src={promo.image} alt={promo.title} fill className="object-cover" />
+                </div>
+                <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/70">{promo.tag}</p>
+                <h3 className="text-xl font-semibold text-white">{promo.title}</h3>
+                <p className="text-sm text-white/90">{promo.intro}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/80">What to expect</p>
+                <p className="text-sm text-white/90">{promo.expectation}</p>
+                <Link
+                  href={promo.link}
+                  target="_blank"
+                  className="mt-3 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ffe066]"
+                >
+                  {promo.linkLabel} →
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-4xl bg-gradient-to-br from-[#ffba7a] to-[#ff6f91] p-8 text-white shadow-2xl">
+          <div className="grid gap-6 lg:grid-cols-[3fr_2fr]">
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-center gap-4">
+                <Image src="/images/partner-nihaocafe.png" alt="That’s Mandarin / NihaoCafe" width={150} height={40} className="drop-shadow" />
+                <p className="text-xs uppercase tracking-[0.4em] text-white/70">That’s Mandarin Online School</p>
+              </div>
+              <h2 className="text-2xl font-semibold">Pair hover reading with live immersion</h2>
+              <p className="text-base text-white/90">
+                When you need speaking + listening reps, jump into That’s Mandarin’s online program. Classes run through NihaoCafe,
+                their in-house platform, and every teacher is native, TCSL-certified, and part of the top 5% of applicants they
+                accept.
+              </p>
+              <ul className="space-y-2 text-sm text-white/90">
+                <li>• 100% Chinese instruction, even for beginners (teachers lean on visuals instead of switching to English)</li>
+                <li>• NihaoCafe homework, recordings, and vocab tracking after every session</li>
+                <li>• Dedicated HSK Preparation Course with mock exams + coaching when you’re test-focused</li>
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
+                  target="_blank"
+                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffe066]"
+                >
+                  Explore live classes
+                </Link>
+                <Link
+                  href="https://www.thatsmandarin.com/hsk-preparation-course/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
+                  target="_blank"
+                  className="rounded-full border border-white/70 px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white"
+                >
+                  HSK prep course
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-72 w-full overflow-hidden rounded-3xl border border-white/20">
+              <Image src="/images/tm-online.jpg" alt="That’s Mandarin live class" fill className="object-cover" />
+            </div>
+          </div>
+        </section>
+
         <section id="levels" className="rounded-4xl bg-gradient-to-r from-[#7f5af0] via-[#9a57ff] to-[#c850c0] p-8 text-white shadow-2xl">
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-white/70">Level selector</p>
@@ -273,20 +278,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-white/95 p-8 text-slate-900 shadow-2xl">
+        <section className="rounded-4xl bg-gradient-to-br from-[#ff8c8c] to-[#ffb677] p-8 text-white shadow-2xl">
           <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.4em] text-slate-500">Subject filters</p>
-            <h2 className="text-2xl font-semibold text-slate-900">Pick the context you care about</h2>
-            <p className="text-sm text-slate-600">
+            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Subject filters</p>
+            <h2 className="text-2xl font-semibold text-white">Pick the context you care about</h2>
+            <p className="text-sm text-white/80">
               Work call coming up? Planning a trip? Tap a subject and grab the matching article in seconds.
             </p>
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-4">
             {subjects.map((subject) => (
-              <article key={subject.name} className={`rounded-3xl border border-white/10 bg-white/90 px-4 py-5 text-slate-900 ${subject.color}`}>
+              <article key={subject.name} className={`rounded-3xl border border-white/10 bg-white/10 px-4 py-5 text-white ${subject.color}`}>
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-600">{subject.name}</p>
-                <p className="mt-2 text-sm text-slate-700">{subject.description}</p>
-                <button className="mt-4 text-xs font-semibold text-rose-500">Browse {subject.name} lessons →</button>
+                <p className="mt-2 text-sm text-white/90">{subject.description}</p>
+                <button className="mt-4 text-xs font-semibold text-[#ffe066]">Browse {subject.name} lessons →</button>
               </article>
             ))}
           </div>
@@ -329,65 +334,66 @@ const lessonTypePromos = [
     tag: "Online",
     gradient: "from-[#5d50c6] to-[#8a64e8]",
     image: "/images/tm-online.jpg",
-    teacher: "Teacher Li",
     intro:
-      "Hi, I’m Teacher Li on the NihaoCafe online campus. We warm up with tone drills, then screen-share interactive slides for new vocab.",
-    expectation: "Expect 60 minutes of guided reading, breakout pronunciation practice, and annotated notes saved to NihaoCafe.",
+      "Log into NihaoCafe from anywhere, warm up with quick tone drills, then walk through interactive reading slides with a native coach.",
+    expectation: "You’ll get 60 minutes of guided reading, pronunciation feedback, and annotated notes saved to your NihaoCafe dashboard.",
     link: "https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+    linkLabel: "See online program",
   },
   {
     title: "1-on-1 Private Lesson",
     tag: "1-to-1",
     gradient: "from-[#7b5cd6] to-[#b04ae0]",
     image: "/images/tm-one-on-one.jpg",
-    teacher: "Teacher Chen",
     intro:
-      "Hello! I’m Teacher Chen. First five minutes we align on goals, then I tailor the reading + speaking drills just for you.",
-    expectation: "Screen-share your hover lesson, pause to role-play, and leave with a mini assignment recorded in NihaoCafe.",
+      "Meet your teacher one-on-one, align on goals in minutes, then dive into tailored reading + speaking drills at your speed.",
+    expectation: "Screen-share your hover lesson, pause to role-play dialogues, and leave with a tidy mini assignment inside NihaoCafe.",
     link: "https://www.thatsmandarin.com/one-on-one-chinese-lessons/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+    linkLabel: "View 1-to-1 lessons",
   },
   {
     title: "Group Class Playbook",
     tag: "Group",
     gradient: "from-[#b04ae0] to-[#ff6f91]",
     image: "/images/tm-group.jpg",
-    teacher: "Teacher Mei",
     intro:
-      "Hi, I’m Teacher Mei. Small groups (max 6) mean everyone reads aloud, swaps feedback, and keeps the pace together.",
-    expectation: "Breakout reading circles, peer corrections, and homework posted right inside NihaoCafe after class.",
+      "Join a 4–6 learner pod where everyone reads aloud, swaps feedback, and keeps momentum together.",
+    expectation: "Expect breakout reading circles, peer corrections, and homework posted right inside NihaoCafe after every class.",
     link: "https://www.thatsmandarin.com/part-time-group-chinese-classes/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+    linkLabel: "View group classes",
   },
   {
     title: "Summer Camp Live",
     tag: "Summer",
     gradient: "from-[#ff6f91] to-[#ff9671]",
     image: "/images/tm-summer.jpg",
-    teacher: "Coach Ada",
     intro:
-      "Ni hao campers! I host culture stories, craft time, and outdoor vocab live from Beijing + Shenzhen campuses.",
-    expectation: "Movement warm-ups, new friends, and daily badges logged in NihaoCafe for parents to review.",
+      "Kids join culture stories, crafts, and outdoor vocab adventures streamed directly from the Beijing + Shenzhen campuses.",
+    expectation: "Daily movement warm-ups, new friends, and digital badges logged in NihaoCafe for parents to follow.",
     link: "https://www.thatsmandarin.com/chinese-summer-camp/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+    linkLabel: "See summer camp",
   },
   {
     title: "Winter Camp Express",
     tag: "Winter",
     gradient: "from-[#ff9671] to-[#ffb677]",
     image: "/images/tm-winter.jpg",
-    teacher: "Coach Rui",
     intro:
-      "I’m Coach Rui. Winter sessions mix snowy scavenger hunts with calligraphy + reading circles.",
-    expectation: "Bilingual guides on every excursion, nightly reflection prompts, and recap videos for parents.",
+      "Snowy scavenger hunts, calligraphy circles, and reflection time keep winter learners speaking Chinese all day.",
+    expectation: "Guided excursions, bilingual mentors, and nightly recap videos so families can follow the progress.",
     link: "https://www.thatsmandarin.com/chinese-winter-camp/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+    linkLabel: "See winter camp",
   },
   {
     title: "Immersion Day",
     tag: "Immersion",
     gradient: "from-[#ffb677] to-[#ffcc66]",
     image: "/images/tm-immersion.jpg",
-    teacher: "Teacher Wang",
     intro:
-      "Ni hao! I guide you through a full-day plan in Beijing or Shanghai—breakfast orders, metro missions, and tutoring blocks.",
-    expectation: "Street tasks + classroom debriefs, all logged in NihaoCafe so you remember every dialogue.",
+      "Spend a full day in Beijing or Shanghai ordering meals, riding the metro, and checking in with a tutor at every stop.",
+    expectation: "Street missions alternate with classroom coaching, and every dialogue is logged inside NihaoCafe for later review.",
     link: "https://www.thatsmandarin.com/intensive-chinese-course/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons",
+    linkLabel: "View immersion course",
   },
 ];
+

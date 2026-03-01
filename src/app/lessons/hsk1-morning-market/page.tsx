@@ -32,8 +32,17 @@ export default function LessonPage() {
   const lesson = hsk1MorningMarket;
 
   return (
-    <div className="bg-neutral-50 px-4 py-12 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-[#120c3b] via-[#151c4f] to-[#1c1f33] px-4 py-12 text-slate-50">
       <div className="mx-auto max-w-5xl space-y-8">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-white/80">
+          <p className="text-xs uppercase tracking-[0.4em] text-white/60">Lesson rules</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>Stay within 90% target HSK vocab—dashed outlines show the stretch words.</li>
+            <li>Hover or tap any token to see pinyin, part of speech, and HSK flag.</li>
+            <li>Color legend + practice prompts are consistent on every page.</li>
+          </ul>
+        </div>
+
         <Link
           href="/"
           className="inline-flex items-center text-sm font-semibold text-rose-500 hover:text-rose-600"
@@ -41,7 +50,7 @@ export default function LessonPage() {
           ← Back to homepage
         </Link>
 
-        <header className="grid gap-6 rounded-3xl bg-white p-6 shadow-sm md:grid-cols-[2fr_1fr]">
+        <header className="grid gap-6 rounded-3xl border border-white/10 bg-white/95 p-6 text-slate-900 shadow-lg md:grid-cols-[2fr_1fr]">
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.4em] text-rose-400">
               HSK {lesson.hskLevel} · {lesson.category}
@@ -54,7 +63,7 @@ export default function LessonPage() {
           </div>
         </header>
 
-        <section className="grid gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-3">
+        <section className="grid gap-4 rounded-3xl border border-white/10 bg-white/95 p-6 text-slate-900 shadow-lg lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-3">
             <h2 className="text-base font-semibold text-slate-900">Today’s objectives</h2>
             <ul className="list-disc space-y-2 pl-5 text-sm text-slate-600">
@@ -79,7 +88,7 @@ export default function LessonPage() {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm">
+        <section className="rounded-3xl border border-white/10 bg-white/95 p-8 text-slate-900 shadow-lg">
           <LessonReader lesson={lesson} />
         </section>
 
