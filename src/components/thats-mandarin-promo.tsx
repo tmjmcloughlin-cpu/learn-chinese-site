@@ -23,14 +23,14 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
             <Link
               href={externalUrl}
               target="_blank"
-              className="inline-flex items-center rounded-full bg-white/90 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-500 transition hover:bg-white"
+              className="inline-flex items-center rounded-full bg-white/90 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#2b0e68] transition hover:bg-white"
             >
               Book a live class →
             </Link>
             <Link
               href={hskUrl}
               target="_blank"
-              className="inline-flex items-center rounded-full border border-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-rose-500"
+              className="inline-flex items-center rounded-full border border-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-[#2b0e68]"
             >
               HSK prep course →
             </Link>
@@ -65,14 +65,14 @@ export function ThatsMandarinPromo({ variant = "full" }: { variant?: "full" | "c
             <Link
               href={externalUrl}
               target="_blank"
-              className="rounded-full bg-white/95 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-rose-500 transition hover:bg-white"
+              className="rounded-full bg-white/95 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#2b0e68] transition hover:bg-white"
             >
               Explore That’s Mandarin
             </Link>
             <Link
               href={hskUrl}
               target="_blank"
-              className="rounded-full border border-white/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-rose-500"
+              className="rounded-full border border-white/70 px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white hover:bg-white hover:text-[#2b0e68]"
             >
               HSK prep course
             </Link>

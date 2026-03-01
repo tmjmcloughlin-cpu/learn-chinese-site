@@ -35,7 +35,7 @@ export default function LessonPage() {
     <div className="min-h-screen bg-gradient-to-b from-[#120c3b] via-[#151c4f] to-[#1c1f33] px-4 py-12 text-slate-50">
       <div className="mx-auto max-w-5xl space-y-8">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-white/80">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/60">Lesson rules</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-white/70">Lesson rules</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>Stay within 90% target HSK vocab—dashed outlines show the stretch words.</li>
             <li>Hover or tap any token to see pinyin, part of speech, and HSK flag.</li>
@@ -45,7 +45,7 @@ export default function LessonPage() {
 
         <Link
           href="/"
-          className="inline-flex items-center text-sm font-semibold text-rose-500 hover:text-rose-600"
+          className="inline-flex items-center text-sm font-semibold text-[#2b0e68] hover:text-rose-600"
         >
           ← Back to homepage
         </Link>
@@ -73,7 +73,7 @@ export default function LessonPage() {
             </ul>
           </div>
           <div className="space-y-2 rounded-2xl bg-rose-50 p-4 text-sm text-rose-700">
-            <p className="font-semibold uppercase tracking-[0.3em] text-rose-500">Legend</p>
+            <p className="font-semibold uppercase tracking-[0.3em] text-[#2b0e68]">Legend</p>
             <div className="flex flex-wrap gap-2">
               {legend.map((item) => (
                 <span key={item.label} className={`rounded-full px-3 py-1 text-xs font-semibold ${item.color}`}>

@@ -23,13 +23,6 @@ const levelTracks = [
   },
 ];
 
-const subjects = [
-  { name: "Work", description: "meetings · coworker syncs · remote calls", color: "bg-[#ffe9cf]" },
-  { name: "Life", description: "habits · food · health routines", color: "bg-[#ffd7e2]" },
-  { name: "Travel", description: "train trips · hotels · weekend plans", color: "bg-[#ffe6f3]" },
-  { name: "Culture", description: "festivals · etiquette · markets", color: "bg-[#ffe1d2]" },
-];
-
 const heroFacts = [
   { label: "06:00 London", text: "Fresh drop every morning" },
   { label: "90% in-level", text: "Dashed outlines mark stretch vocab" },
@@ -154,7 +147,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href={`/lessons/${latestLesson.slug}`}
-                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffe066]"
+                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2b0e68]"
                 >
                   Read lesson
                 </Link>
@@ -195,7 +188,7 @@ export default function Home() {
                 <Link
                   href={promo.link}
                   target="_blank"
-                  className="mt-3 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ffe066]"
+                  className="mt-3 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#2b0e68]"
                 >
                   {promo.linkLabel} →
                 </Link>
@@ -226,7 +219,7 @@ export default function Home() {
                 <Link
                   href="https://www.thatsmandarin.com/learn-chinese-online/?utm_source=learnchinese-site&utm_medium=partner&utm_campaign=hover_lessons"
                   target="_blank"
-                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#ffe066]"
+                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2b0e68]"
                 >
                   Explore live classes
                 </Link>
@@ -271,53 +264,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-4xl bg-gradient-to-br from-[#ff8c8c] to-[#ffb677] p-8 text-white shadow-2xl">
-          <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/70">Subject filters</p>
-            <h2 className="text-2xl font-semibold text-white">Pick the context you care about</h2>
-            <p className="text-sm text-white/80">
-              Work call coming up? Planning a trip? Tap a subject and grab the matching article in seconds.
-            </p>
-          </div>
-          <div className="mt-6 grid gap-4 md:grid-cols-4">
-            {subjects.map((subject) => (
-              <article key={subject.name} className={`rounded-3xl border border-white/10 bg-white/10 px-4 py-5 text-white ${subject.color}`}>
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-600">{subject.name}</p>
-                <p className="mt-2 text-sm text-white/90">{subject.description}</p>
-                <button className="mt-4 text-xs font-semibold text-[#ffe066]">Browse {subject.name} lessons →</button>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="rounded-4xl bg-gradient-to-br from-[#27105a] to-[#0f0a27] p-8 text-slate-50 shadow-2xl">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-rose-200">Why this format works</p>
-              <h2 className="mt-3 text-2xl font-semibold">Coral gradients + hover grammar = fast reps</h2>
-              <p className="mt-3 text-sm text-slate-200">
-                We borrow the playful energy of apps like Drops (gradients, rounded tiles, white typography) but keep the content
-                laser-focused on HSK bands. Hovering exposes pinyin + part of speech, dashed outlines warn you about stretch
-                vocab, and the companion practice prompts give you output reps.
-              </p>
-            </div>
-            <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Release cadence</p>
-                <p className="text-sm text-slate-200">New HSK 1–3 lessons every day at 06:00 London.</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Find your fit</p>
-                <p className="text-sm text-slate-200">Color-coded parts of speech, stretch vocab warnings, and filters mean zero guesswork.</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">Next up</p>
-                <p className="text-sm text-slate-200">Audio buttons, flashcard drills, and streak tracking—rolling out soon.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+                     </main>
     </div>
   );
 }

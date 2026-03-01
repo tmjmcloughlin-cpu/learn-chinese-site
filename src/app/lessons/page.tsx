@@ -43,7 +43,7 @@ export default function LessonsFeed() {
                     key={value}
                     onClick={() => setLevel(value)}
                     className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition ${
-                      level === value ? "bg-white text-rose-500" : "bg-white/10 text-white hover:bg-white/20"
+                      level === value ? "bg-white text-[#2b0e68]" : "bg-white/10 text-white hover:bg-white/20"
                     }`}
                   >
                     {value}
@@ -59,7 +59,7 @@ export default function LessonsFeed() {
                     key={value}
                     onClick={() => setTag(value)}
                     className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition ${
-                      tag === value ? "bg-white text-rose-500" : "bg-white/10 text-white hover:bg-white/20"
+                      tag === value ? "bg-white text-[#2b0e68]" : "bg-white/10 text-white hover:bg-white/20"
                     }`}
                   >
                     {value}
@@ -85,7 +85,7 @@ export default function LessonsFeed() {
               </div>
               <Link
                 href={`/lessons/${lesson.slug}`}
-                className="mt-4 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-rose-500"
+                className="mt-4 inline-flex items-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#2b0e68]"
               >
                 Open lesson →
               </Link>

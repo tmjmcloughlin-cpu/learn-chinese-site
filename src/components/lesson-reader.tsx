@@ -65,7 +65,7 @@ export function LessonReader({ lesson }: { lesson: Lesson }) {
             isActive ? "flex" : ""
           }`}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-500">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#2b0e68]">
             {token.pinyin}
           </span>
           <span className="text-lg font-semibold text-slate-900">{token.english}</span>
